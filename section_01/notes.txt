@@ -6,3 +6,21 @@ Notes
 - looked over course resources
 - watched videos
 - no questions, all is clear
+
+08-MARCH-2020
+
+Notes
+
+- watched videos 1, 4, 6, 7, 8, and 9 at 2x speed
+- installed Atom editor for Mac
+- installed recommended Atom packages atom-beautify, atom-ternjs, autoclose-html, emmet, csslint, pigments, language-ejs
+- installed optional packages atom-html-preview, Sublime-Style-Column-Selection, linter-eslint
+- installed VSCode for Mac
+- installed recommend VSCode packages esbenp.prettier-vscode, formulahendry.auto-close-tag, hex-ci.stylelint-plus, dbaeumer.vscode-eslint, naumovs.color-highlight, DigitalBrainstem.javascript-ejs-support
+- installed optional VSCode packages ritwickdey.LiveServer, erikphansen.vscode-toggle-column-selection, file-icons
+- downloaded Angela's recommended notes template
+- added .gitignore to repo to avoid storing .DS_Store files
+
+
+
+
