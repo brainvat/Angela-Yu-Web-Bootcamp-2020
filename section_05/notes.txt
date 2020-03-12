@@ -1,0 +1,8 @@
+11-MARCH-2020
+
+Notes
+
+- created a favico on favicon.cc from my gravatar image which I poached from Github
+- installed pesticide chrome extension from pesticide.io
+- watched videos 43, 44, 45, 46, 47, 49, and 50 at 2x speed on Macbook from home
+- did not complete this section, stopped at "dark art of CSS centering"
