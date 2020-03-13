@@ -13,3 +13,4 @@ Notes
 
 - watched videos 51, 52, 54, 55, 59, and 60 at 2x speed on iPad from gym
 - skipped font challenges 1, 2 and 3; will come back to those when I do all the exercises
+- linked brainvat Github repo for this course to slack
