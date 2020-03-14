@@ -5,3 +5,10 @@ Notes
 - watched videos 11, 12, 13, 14, 15, 16, 17, and 18 at 2x speed
 - completed Assignment 1 (survey)
 - intend to go back and watch at normal speed and complete exercises for this section later this week
+
+14-MARCH-2020
+
+- restructured folders in repo to separate lessons from projects
+- scanned videos in lessons 11, 12, 13, 14, 15, 16, 17, and 18 in order to follow along with project exercises
+- completed project exercises and HTML Personal Site Project
+
