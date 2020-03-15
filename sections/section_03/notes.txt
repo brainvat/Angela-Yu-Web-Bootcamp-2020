@@ -8,3 +8,4 @@ Notes
 14-MARCH-2020
 
 - completed all coding exercises and challenges
+- published personal site to https://brainvat.github.io/Angela-Yu-Web-Bootcamp-2020/
