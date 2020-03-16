@@ -4,7 +4,7 @@ function whosPaying(names) {
 
     //Write your code here.
 
-
+    return names[Math.floor(Math.random() * names.length)] + " is going to buy lunch today!";
 
 
 
