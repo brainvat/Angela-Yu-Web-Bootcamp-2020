@@ -4,3 +4,4 @@ Notes
 
 - watched videos 141, 142, and 144 at 2x speed on iPad at home
 - did not complete this section
+- installed HTML Tree Generator chrome extension
