@@ -1,1 +1,1 @@
-document.query
+document.querySelectorAll('.list')[2].innerHTML += " changed by JS";
