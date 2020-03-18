@@ -1,0 +1,6 @@
+17-MARCH-2020
+
+Notes
+
+- watched videos 225, 228, 229, 230, 231, and 232 at 2x speed on iPad from home
+- updated Homebrew and installed Node.js v13.11.0 on my laptop
