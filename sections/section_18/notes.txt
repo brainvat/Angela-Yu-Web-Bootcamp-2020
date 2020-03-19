@@ -1,0 +1,6 @@
+18-MARCH-2020
+
+Notes
+
+- watched videos 234, 235, 236, 238, 239, 241, 242, 243, 245 and 246 at 2x speed on iPad from home
+- installed superheroes and supervillains@3.0.0 NPM modules and nodemon on my laptop
