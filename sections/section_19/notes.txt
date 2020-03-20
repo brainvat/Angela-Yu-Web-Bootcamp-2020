@@ -1,0 +1,7 @@
+19-MARCH-2020
+
+Notes
+
+- watched lessons 248, 250, 251, 252, 253, 254, and 255 at 2x speed on iPad from home
+- installed JSON Viewer Awesome in Chrome, installed Postman Chrome Extension
+- signed up for Open Weather API Key
