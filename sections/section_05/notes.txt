@@ -26,3 +26,4 @@ Notes
 
 - completed lesson 52 on font styling
 - updated professional web site project with Google fonts
+- completed all font and styling exercises for section 5
