@@ -1,0 +1,6 @@
+23-MARCH-2020
+
+Notes
+
+- skipped lessons 263, 264, 265, 267, 268, 269, 271, and 272
+- I had already watched all of these lessons from another Angela Yu course on Flutter
