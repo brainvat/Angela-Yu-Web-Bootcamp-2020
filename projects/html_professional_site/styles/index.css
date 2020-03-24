@@ -1,11 +1,20 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/margin */
+/* https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts */
+/* https://www.cssfontstack.com/ */
+/* https://fonts.google.com/ */
 body {
   margin:0;
   text-align: center;
+  font-family: 'Merriweather', serif;
 }
 
 h1 {
   margin: 0 auto;
+  font-family: 'Sacramento', cursive
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pro-span {
