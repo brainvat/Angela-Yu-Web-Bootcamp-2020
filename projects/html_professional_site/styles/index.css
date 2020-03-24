@@ -35,6 +35,11 @@ h3 {
   background-color: yellow;
 }
 
+.bottom-attribution {
+  background-color: yellow;
+  font-size: 0.25em;
+}
+
 .top-cloud {
   position: absolute;
   right: 300px;

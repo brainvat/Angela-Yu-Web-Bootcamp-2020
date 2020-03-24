@@ -22,3 +22,7 @@ Notes
 - watched videos 62 and 64 at 2x speed on iPad from gym
 - still need to go back and complete the website exercise and CSS challenge
 
+23-MARCH-2020
+
+- completed lesson 52 on font styling
+- updated professional web site project with Google fonts
