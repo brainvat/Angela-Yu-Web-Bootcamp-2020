@@ -1,0 +1,304 @@
+{
+    "mockup": {
+        "controls": {
+            "control": [
+                {
+                    "ID": "0",
+                    "typeID": "BrowserWindow",
+                    "zOrder": "0",
+                    "h": "800",
+                    "measuredW": "450",
+                    "measuredH": "400",
+                    "x": "134",
+                    "y": "30"
+                },
+                {
+                    "ID": "1",
+                    "typeID": "LineOfText",
+                    "zOrder": "2",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "158",
+                    "y": "120"
+                },
+                {
+                    "ID": "2",
+                    "typeID": "LineOfText",
+                    "zOrder": "3",
+                    "w": "117",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "158",
+                    "y": "210"
+                },
+                {
+                    "ID": "3",
+                    "typeID": "LineOfText",
+                    "zOrder": "4",
+                    "w": "101",
+                    "h": "26",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "158",
+                    "y": "253"
+                },
+                {
+                    "ID": "4",
+                    "typeID": "Canvas",
+                    "zOrder": "1",
+                    "w": "444",
+                    "h": "375",
+                    "measuredW": "100",
+                    "measuredH": "70",
+                    "x": "137",
+                    "y": "104",
+                    "properties": {
+                        "color": "13576743"
+                    }
+                },
+                {
+                    "ID": "6",
+                    "typeID": "LinkBar",
+                    "zOrder": "5",
+                    "measuredW": "184",
+                    "measuredH": "18",
+                    "x": "384",
+                    "y": "120",
+                    "properties": {
+                        "size": "10"
+                    }
+                },
+                {
+                    "ID": "7",
+                    "typeID": "iPhone",
+                    "zOrder": "6",
+                    "w": "162",
+                    "h": "302",
+                    "measuredW": "436",
+                    "measuredH": "867",
+                    "x": "406",
+                    "y": "154",
+                    "properties": {
+                        "model": "IPhoneX",
+                        "resizing": "stretch"
+                    }
+                },
+                {
+                    "ID": "8",
+                    "typeID": "Button",
+                    "zOrder": "7",
+                    "measuredW": "63",
+                    "measuredH": "27",
+                    "x": "158",
+                    "y": "305"
+                },
+                {
+                    "ID": "9",
+                    "typeID": "Button",
+                    "zOrder": "8",
+                    "measuredW": "63",
+                    "measuredH": "27",
+                    "x": "237",
+                    "y": "305"
+                },
+                {
+                    "ID": "10",
+                    "typeID": "Image",
+                    "zOrder": "9",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "190",
+                    "y": "507"
+                },
+                {
+                    "ID": "11",
+                    "typeID": "Image",
+                    "zOrder": "10",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "329",
+                    "y": "507"
+                },
+                {
+                    "ID": "12",
+                    "typeID": "Image",
+                    "zOrder": "11",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "462",
+                    "y": "507"
+                },
+                {
+                    "ID": "19",
+                    "typeID": "LineOfText",
+                    "zOrder": "12",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "327",
+                    "y": "602"
+                },
+                {
+                    "ID": "20",
+                    "typeID": "LineOfText",
+                    "zOrder": "13",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "327",
+                    "y": "620"
+                },
+                {
+                    "ID": "25",
+                    "typeID": "LineOfText",
+                    "zOrder": "14",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "189",
+                    "y": "602"
+                },
+                {
+                    "ID": "26",
+                    "typeID": "LineOfText",
+                    "zOrder": "15",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "189",
+                    "y": "620"
+                },
+                {
+                    "ID": "27",
+                    "typeID": "LineOfText",
+                    "zOrder": "16",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "461",
+                    "y": "602"
+                },
+                {
+                    "ID": "28",
+                    "typeID": "LineOfText",
+                    "zOrder": "17",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "461",
+                    "y": "620"
+                },
+                {
+                    "ID": "29",
+                    "typeID": "Image",
+                    "zOrder": "18",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "191",
+                    "y": "656"
+                },
+                {
+                    "ID": "30",
+                    "typeID": "LineOfText",
+                    "zOrder": "19",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "190",
+                    "y": "751"
+                },
+                {
+                    "ID": "31",
+                    "typeID": "LineOfText",
+                    "zOrder": "20",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "190",
+                    "y": "769"
+                },
+                {
+                    "ID": "32",
+                    "typeID": "Image",
+                    "zOrder": "21",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "328",
+                    "y": "656"
+                },
+                {
+                    "ID": "33",
+                    "typeID": "LineOfText",
+                    "zOrder": "22",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "327",
+                    "y": "751"
+                },
+                {
+                    "ID": "34",
+                    "typeID": "LineOfText",
+                    "zOrder": "23",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "327",
+                    "y": "769"
+                },
+                {
+                    "ID": "35",
+                    "typeID": "Image",
+                    "zOrder": "24",
+                    "measuredW": "77",
+                    "measuredH": "79",
+                    "x": "462",
+                    "y": "656"
+                },
+                {
+                    "ID": "36",
+                    "typeID": "LineOfText",
+                    "zOrder": "25",
+                    "w": "79",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "461",
+                    "y": "751"
+                },
+                {
+                    "ID": "37",
+                    "typeID": "LineOfText",
+                    "zOrder": "26",
+                    "w": "69",
+                    "h": "10",
+                    "measuredW": "200",
+                    "measuredH": "27",
+                    "x": "461",
+                    "y": "769"
+                }
+            ]
+        },
+        "attributes": {
+            "name": "New Wireframe 1",
+            "order": 938428.5264654435,
+            "parentID": null
+        },
+        "resourceID": "2278E287-509B-183B-1098-2EC38DDDB7D8",
+        "mockupH": "800",
+        "mockupW": "450",
+        "measuredW": "584",
+        "measuredH": "830",
+        "version": "1.0"
+    }
+}
