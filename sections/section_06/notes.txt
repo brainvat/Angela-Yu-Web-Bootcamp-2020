@@ -6,4 +6,7 @@ Notes
 - watched videos 81 and 82 at 2x speed on MacBook at home
 - did not complete this section or any of the exercises yet
 
+25-MARCH-2020
 
+- downloaded source files for bootstrap-4.3.1
+- initialized local Bootstrap project and completed exercises in section 6
