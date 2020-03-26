@@ -1,134 +1,66 @@
-<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="HTML Personal Site Project for Udemy Webdev 2020 Bootcamp">
-  <title>Brainvat's Personal Site</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Sacramento&display=swap" rel="stylesheet">
+  <title>My Professional Site</title>
 </head>
+<!-- http://markusvogl.com/web1/interactive_box_model/css_box_demo.html -->
 
 <body>
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img -->
-  <!-- https://resize.imageonline.co/ -->
-  <!-- https://crop-circle.imageonline.co/ -->
-  <table cellspacing="20">
-    <tr>
-      <td valign="top">
-        <img src="images/brainvat-circle-cropped-small.png" alt="Allen Hammock (@brainvat on Twitter)">
+  <div class="top-container">
+    <img class="top-cloud" src="images/cloud.png" alt="cloud-img">
+    <h1>I am Brainvat</h1>
+    <h2>
+      a <span class="pro-span">pro</span>grammer.
+    </h2>
+    <img class="bottom-cloud" src="images/cloud.png" alt="cloud-img">
+    <img src="images/mountain.png" alt="mountain-img">
+  </div>
+  <div class="middle-container">
+    <div class="profile">
+      <img class="image-me" src="images/brainvat-circle-cropped.png" alt="Brainvat">
+      <h2>Hello.</h2>
+      <p class="profile-text">This web site is an assignment for the Web Development 2020 Boot Camp course taught by Angela Yu of the London App Brewery.</p>
+    </div>
+    <hr>
+    <div class="skills">
+      <h2>My Skills.</h2>
+      <div class="skill-row">
+        <img class="skill-image-left" src="images/my-icons-collection/png/003-computer.png" alt="Computer Programming">
+        <h3>Computer Programming</h3>
+        <p>I am able to read and interpret code in over a dozen languages including modern dialects like JavaScript, Swift, Objective-C and DART as well as some older more obscure types such as Smalltalk.  LISP still largely escapes me.</p>
+      </div>
+      <div class="skill-row">
+        <img class="skill-image-right" src="images/my-icons-collection/png/001-report.png" alt="Data Science">
+        <h3>Data Science</h3>
+        <p>While I don't have the full skills of a professional data scientist, I do have a strong background in statistics and mathematics, computer programming, and a deep business domain knowledge of digital advertising and very broad knowledge of modern deep learning approaches.</p>
+      </div>
+    </div>
+    <hr>
+    <div class="contact-me">
+      <h2>Get In Touch</h2>
+      <h3>Find me on Linked In!</h3>
+      <p>If you're trying to contact me professionally, look me up on <a href="https://www.linkedin.com/in/ahammock">Linked In.</a></p>
+      <a class="btn" href="mailto:name@email.com">CONTACT ME</a>
+    </div>
+  </div>
 
-      </td>
-      <td>
-        <h1>Allen Hammock</h1>
-        <p><em>Director, Search Strategy (<a href="https://www.kenshoo.com">Kenshoo</a>)</em></p>
-        <p>
-          I have 20 years of experience in digital advertising technology, from display advertising to paid search and mobile applications. I have a very strong technical background, working as an individual contributor to engineering efforts while
-          also
-          serving in a management capacity to organize and inspire product and engineering teams.
-        </p>
-        <p>
-          While I am a technical person, I find my greatest strength is interfacing with non-technical users and bridging the gap between their problems to the ultimate solutions that meet their needs. To that end, I spend much of my time in front of
-          business people, from top level executives down the value chain, helping to get insights into their needs and find appropriate and efficient technological solutions.
-        </p>
-      </td>
-    </tr>
-  </table>
-  <hr />
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul -->
-  <h3>Education</h3>
-  <ul>
-    <li>
-      <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp">The Complete 2020 Web Development Bootcamp</a>
-    </li>
-    <li>
-      <a href="https://www.udemy.com/course/ios11-app-development-bootcamp">iOS 11 & Swift 4 - The Complete iOS App Development Bootcamp</a>
-    </li>
-    <li>
-      <a href="https://www.udemy.com/course/core-data-and-realm-database/learn/lecture">Core Data and Realm - Master Data Persistence for iOS</a>
-    </li>
-    <li>
-      <a href="https://www.udemy.com/course/flutter-bootcamp-with-dart/">The Complete 2020 Flutter Development Bootcamp with Dart</a>
-    </li>
-  </ul>
-  <!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics -->
-  <h3>Work Experience</h3>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>
-          Dates
-        </th>
-        <th>
-          Work
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          February 2019 - Present
-        </td>
-        <td>
-          Director, Search Strategy
-        </td>
-      </tr>
-      <tr>
-        <td>
-          July 2014 - January 2019
-        </td>
-        <td>
-          Solutions Consultant
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Skills</h3>
-  <table>
-    <tr>
-      <td>
-        <table>
-          <tr>
-            <td>
-              iOS Development
-            </td>
-            <td>
-              ★★★★
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Web Development
-            </td>
-            <td>
-              ★★★★★
-            </td>
-          </tr>
-        </table>
-      </td>
-      <td>
-        <table>
-          <tr>
-            <td>
-              R Programming
-            </td>
-            <td>
-              ★★★
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Calculus
-            </td>
-            <td>
-              ★★★★
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-  <a href="hobbies.html">My Hobbies</a>
-  <a href="contact-me.html">Contact Me</a>
+  <div class="bottom-container">
+    <a class="footer-link" href="https://www.linkedin.com/in/ahammock">LinkedIn</a>
+    <a class="footer-link" href="https://twitter.com/brainvat">Twitter</a>
+    <a class="footer-link" href="https://github.com/brainvat">Github</a>
+    <p class="copyright">© 2020 Brainvat</p>
+  </div>
+
+  <div class="bottom-attribution">
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  </div>
+
 </body>
 
 </html>
