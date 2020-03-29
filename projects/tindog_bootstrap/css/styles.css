@@ -1,3 +1,10 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
 #title {
   background-color: #ff4c68;
 }
