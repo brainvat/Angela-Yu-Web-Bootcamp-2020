@@ -12,10 +12,12 @@ h1 {
   line-height: 1.5;
 }
 
+/* class selectors */
+.container-fluid {
+  padding: 3% 15%;
+}
+
 /* id selectors */
 #title {
   background-color: #ff4c68;
 }
-
-
-/* class selectors */
