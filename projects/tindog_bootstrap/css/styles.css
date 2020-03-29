@@ -1,23 +1,58 @@
 /* https://fonts.google.com/specimen/Montserrat */
-
-/* tag selectors */
+/* Global section */
 body {
-  /* font-family: 'Ubuntu', sans-serif; */
-}
-
-h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  size: 3rem;
-  line-height: 1.5;
 }
 
-/* class selectors */
 .container-fluid {
   padding: 3% 15%;
 }
 
-/* id selectors */
+/* navbar section */
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: 'Ubuntu';
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: 'Montserrat';
+  font-weight: 100;
+}
+
+/* Title section */
+
 #title {
   background-color: #ff4c68;
+  color: #fff;
+}
+
+.title-h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+
+/* Download buttons */
+
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Title image */
+
+.title-image {
+  width: 60%;
+  transform: rotate(15deg);
 }
