@@ -10,3 +10,7 @@ Notes
 
 - downloaded source files for bootstrap-4.3.1
 - initialized local Bootstrap project and completed exercises in section 6
+
+29-MARCH-2020
+
+- refactored and renamed boostrap_local project to tindog_bootstrap, including the boilerplate files from lesson 71
