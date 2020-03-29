@@ -1,12 +1,21 @@
+/* https://fonts.google.com/specimen/Montserrat */
+
+/* tag selectors */
 body {
-  font-family: 'Ubuntu', sans-serif;
+  /* font-family: 'Ubuntu', sans-serif; */
 }
 
 h1 {
-  font-family: 'Montserrat-black', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   size: 3rem;
   line-height: 1.5;
 }
+
+/* id selectors */
 #title {
   background-color: #ff4c68;
 }
+
+
+/* class selectors */
