@@ -54,6 +54,15 @@ body {
 }
 
 /* Feature section */
+
+#features {
+  /* padding: 7% 15%; */
+  /* https://www.w3schools.com/cssref/pr_pos_z-index.asp */
+  z-index: 2;
+  background-color: yellow;
+  margin-top: -100px;
+}
+
 .feature-col {
   text-align: center;
   color: #8f8f8f;

@@ -14,3 +14,5 @@ Notes
 29-MARCH-2020
 
 - refactored and renamed boostrap_local project to tindog_bootstrap, including the boilerplate files from lesson 71
+- completed all bootstrap exercises and Challenge 1 now ready to move on to exercises in section 7
+- Section 6 100% complete
