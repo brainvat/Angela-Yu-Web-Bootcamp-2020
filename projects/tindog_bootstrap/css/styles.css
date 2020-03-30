@@ -30,7 +30,6 @@ body {
 }
 
 /* Title section */
-
 #title {
   background-color: #ff4c68;
   color: #fff;
@@ -43,16 +42,42 @@ body {
   line-height: 1.5;
 }
 
-
 /* Download buttons */
-
 .download-button {
   margin: 5% 3% 5% 0;
 }
 
 /* Title image */
-
 .title-image {
   width: 60%;
   transform: rotate(15deg);
+}
+
+/* Feature section */
+.feature-col {
+  text-align: center;
+  color: #8f8f8f;
+  margin: 2rem 0 2rem 0;
+}
+
+.feature-icon {
+  font-size: 4rem;
+  padding-bottom: 1.5rem;
+  color: #ff4c68;
+}
+
+.feature-icon:hover {
+  color: #ef8172;
+}
+
+.feature-h3 {
+  font-family: Montserrat;
+  font-weight: bold;
+  line-height: 1.5rem;
+  color: #000;
+}
+
+.feature-p {
+  width: 80%;
+  margin: auto;
 }
