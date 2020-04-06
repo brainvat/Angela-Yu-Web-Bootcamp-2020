@@ -54,13 +54,12 @@ body {
 }
 
 /* Feature section */
-
 #features {
   /* padding: 7% 15%; */
   /* https://www.w3schools.com/cssref/pr_pos_z-index.asp */
-  z-index: 2;
-  background-color: yellow;
-  margin-top: -100px;
+  /* z-index: 2; */
+  /* background-color: yellow; */
+  /* margin-top: -100px; */
 }
 
 .feature-col {
@@ -89,4 +88,38 @@ body {
 .feature-p {
   width: 80%;
   margin: auto;
+}
+
+/* Testimonials Section */
+#testimonials {
+  padding: 7% 15%;
+  background-color: #ff4c68;
+  text-align: center;
+  color: #fff;
+}
+
+.testimonial-h2 {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+#press {
+  background-color: #ff4c68;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.press-image {
+  width: 15%;
+  margin: 20px 20px 50px;
 }
