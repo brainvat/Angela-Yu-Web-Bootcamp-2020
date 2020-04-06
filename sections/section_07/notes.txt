@@ -5,4 +5,9 @@ Notes
 - watched videos 84, 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96, and 98 at 2x speed on MacBook at home
 - did not complete this section or any of the exercises yet
 
+05-APRIL-2020
 
+Notes
+
+- completed bootstrap carousel exercises 1 and 2 in lessons 84 and 85
+- began css and layout work for bootstrap cards
