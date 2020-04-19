@@ -56,6 +56,25 @@ body {
   right: 20%;
 }
 
+@media (max-width: 990px) {
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+    transform: scale(50%);
+  }
+
+  .title-h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3.0rem;
+    line-height: 1.5;
+  }
+}
+
 /* Feature section */
 #features {
   /* padding: 7% 15%; */
@@ -124,6 +143,14 @@ body {
 .press-image {
   width: 15%;
   margin: 20px 20px 50px;
+}
+
+@media (max-width: 990px) {
+  .testimonial-h2 {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 1.0rem;
+  }
 }
 
 /* Pricing Section */
