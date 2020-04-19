@@ -11,3 +11,10 @@ Notes
 
 - completed bootstrap carousel exercises 1 and 2 in lessons 84 and 85
 - began css and layout work for bootstrap cards
+
+18-APR-2020
+
+Notes
+
+- reviewed Stacking Order Flowchart
+- completed bootstrap card deck and z-index exercises through lesson 87

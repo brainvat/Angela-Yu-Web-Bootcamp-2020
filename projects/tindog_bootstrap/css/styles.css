@@ -1,3 +1,4 @@
+/*csslint ids: false, empty-rules: false*/
 /* https://fonts.google.com/specimen/Montserrat */
 /* Global section */
 body {
@@ -5,7 +6,7 @@ body {
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 15% 7%;
 }
 
 /* navbar section */
@@ -51,15 +52,16 @@ body {
 .title-image {
   width: 60%;
   transform: rotate(15deg);
+  position: absolute;
+  right: 20%;
 }
 
 /* Feature section */
 #features {
   /* padding: 7% 15%; */
   /* https://www.w3schools.com/cssref/pr_pos_z-index.asp */
-  /* z-index: 2; */
-  /* background-color: yellow; */
-  /* margin-top: -100px; */
+  position: relative;
+  background-color: white;
 }
 
 .feature-col {
@@ -92,7 +94,7 @@ body {
 
 /* Testimonials Section */
 #testimonials {
-  padding: 7% 15%;
+  padding: 50px 15% 0;
   background-color: #ff4c68;
   text-align: center;
   color: #fff;
@@ -110,7 +112,7 @@ body {
 }
 
 .carousel-item {
-  padding: 7% 15%;
+  padding: 0 15%;
 }
 
 #press {
@@ -122,4 +124,35 @@ body {
 .press-image {
   width: 15%;
   margin: 20px 20px 50px;
+}
+
+/* Pricing Section */
+#pricing {
+  padding: 50px 100px;
+  text-align: center;
+}
+
+.pricing-h2 {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.pricing-col {
+  padding: 3% 2%;
+}
+.sign-up {
+  width: 90%;
+}
+
+/* Call to Action Section */
+#cta {
+  padding: 50px 15% 0;
+  background-color: #ff4c68;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-h3 {
+  font-family: "Montserrat";
+  font-weight: bold;
 }
