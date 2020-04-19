@@ -18,3 +18,9 @@ Notes
 
 - reviewed Stacking Order Flowchart
 - completed bootstrap card deck and z-index exercises through lesson 87
+
+19-APR-2020
+
+Notes
+
+- completed CSS refactoring in lessons 91 and 92
