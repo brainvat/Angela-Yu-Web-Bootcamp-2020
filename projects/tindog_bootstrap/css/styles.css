@@ -183,3 +183,21 @@ body {
   font-family: "Montserrat";
   font-weight: bold;
 }
+
+/* Footer Section */
+#footer {
+  padding: 50px 100px;
+  text-align: center;
+}
+
+.footer-h3 {
+  font-family: "Montserrat";
+  font-size: 1.0rem;
+  color: #8f8f8f;
+}
+
+.footer-icon {
+  font-size: 2rem;
+  margin: 5px;
+  color: #8f8f8f;
+}
