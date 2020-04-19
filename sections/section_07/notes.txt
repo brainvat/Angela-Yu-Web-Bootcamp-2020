@@ -24,3 +24,4 @@ Notes
 Notes
 
 - completed CSS refactoring in lessons 91 and 92
+- completed section background colors and font colors in lessons 93, 94, and 95

@@ -11,6 +11,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
 }
 
+.color-section {
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #fff;
+  color: #000;
+}
+
 .container-fluid {
   padding: 3% 15% 7%;
 }
@@ -38,8 +48,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Title section */
 #title {
-  background-color: #ff4c68;
-  color: #fff;
+  /* background-color: #ff4c68; */
+  /* color: #fff; */
 }
 
 .title-h1 {
@@ -88,12 +98,12 @@ h1, h2, h3, h4, h5, h6 {
   /* padding: 7% 15%; */
   /* https://www.w3schools.com/cssref/pr_pos_z-index.asp */
   position: relative;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .feature-col {
   /* text-align: center; */
-  color: #8f8f8f;
+  /* color: #8f8f8f; */
   margin: 2rem 0 2rem 0;
 }
 
@@ -111,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
   /* font-family: Montserrat;
   font-weight: bold; */
   line-height: 1.5rem;
-  color: #000;
+  /* color: #000; */
 }
 
 .feature-p {
@@ -122,9 +132,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Testimonials Section */
 #testimonials {
   padding: 50px 15% 0;
-  background-color: #ff4c68;
+  /* background-color: #ff4c68; */
   /* text-align: center; */
-  color: #fff;
+  /* color: #fff; */
 }
 
 .testimonial-h2 {
@@ -143,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #press {
-  background-color: #ff4c68;
+  /* background-color: #ff4c68; */
   /* text-align: center; */
   padding-bottom: 3%;
 }
@@ -182,9 +192,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Call to Action Section */
 #cta {
   padding: 50px 15% 0;
-  background-color: #ff4c68;
+  /* background-color: #ff4c68; */
   /* text-align: center; */
-  color: #fff;
+  /* color: #fff; */
 }
 
 .cta-h3 {
