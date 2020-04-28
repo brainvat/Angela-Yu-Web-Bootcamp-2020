@@ -4,3 +4,14 @@ Notes
 
 - watched videos 234, 235, 236, 238, 239, 241, 242, 243, 245 and 246 at 2x speed on iPad from home
 - installed superheroes and supervillains@3.0.0 NPM modules and nodemon on my laptop
+
+27-APR-2020
+
+Notes
+
+- installed express v4.17.1
+- installed nodemon v2.0.3
+- completed my_express_server exercise
+- installed body-parser v1.19.0
+- completed calculator_express exercise
+- completed bmi calculator exercise
