@@ -4,3 +4,11 @@ Notes
 
 - watched videos 225, 228, 229, 230, 231, and 232 at 2x speed on iPad from home
 - updated Homebrew and installed Node.js v13.11.0 on my laptop
+
+27-APR-2020
+
+Notes
+
+- installed node v12.16.2
+- installed 6.14.4
+- completed supervillains and superheroes exercise
