@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'ejs')
+
+var history = [];
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
@@ -16,8 +19,10 @@ app.post("/", function(req, res){
   var num1 = Number(req.body.num1);
   var num2 = Number(req.body.num2);
   var sum = num1 + num2;
+  var vars = {num1: num1, num2: num2, sum: sum};
 
-  res.send(num1 + " + " + num2 + " = " + sum);
+  history.push(vars);
+  res.render('pages/calculate', {current: vars, history: history});
 });
 
 app.post("/bmicalculator", function(req, res){

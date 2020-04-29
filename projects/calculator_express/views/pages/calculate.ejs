@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Results</title>
+</head>
+
+<body>
+  <h1>This result:</h1>
+  <p>
+    <%= current.num1 %> + <%= current.num2 %> = <%= current.sum %>
+  </p>
+  <h1>History</h1>
+  <ul>
+    <% history.forEach(function(entry) { %>
+      <li>
+        <%= entry.num1 %> + <%= entry.num2 %> = <%= entry.sum %>
+      </li>
+    <%  }); %>
+  </ul>
+</body>
+</html>
