@@ -17,4 +17,5 @@ Notes
 
 Notes
 
-- 
+- Installed dotenv package and saved WEATHER API key in .env sendFile
+- Completed initial working version of weather app on /weather/:city
