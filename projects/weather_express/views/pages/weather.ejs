@@ -4,15 +4,36 @@
 <head>
   <meta charset="utf-8">
   <title>Weather API</title>
+  <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-  <h1>Weather</h1>
-  <p>
-    <%= msg %>
-  </p>
-  <p>
-    Weather in <strong><%= city %></strong> is <i><%= weather %></i>.
-  </p>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Weather</a>
+    <div class="navbar-nav mr-auto">
+      <form class="form-inline my-2 my-lg-0" action="/weather" method="post">
+        <input class="form-control mr-sm-2" type="text" name="city" placeholder="City">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="button">Search</button>
+      </form>
+    </div>
+  </nav>
+  <main role="main" class="container">
+    <h1>Weather</h1>
+    <p>
+      <%= msg %>
+    </p>
+    <% if (city != '') { %>
+    <p>
+      Weather in <strong><%= city %></strong> is <i><%= weather %></i>.
+      The temperature is <%= Number(temp).toFixed(0) %>&deg; F.
+    </p>
+    <% } else { %>
+    <form class="" action="/weather" method="post">
+      <input type="text" name="city" placeholder="City Name">
+      <input type="submit" name="Submit">
+    </form>
+    <% } %>
+  </main>
 </body>
+
 </html>

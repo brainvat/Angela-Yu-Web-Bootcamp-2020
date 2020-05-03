@@ -19,3 +19,11 @@ Notes
 
 - Installed dotenv package and saved WEATHER API key in .env sendFile
 - Completed initial working version of weather app on /weather/:city
+
+02-MAY-2020
+
+Notes
+
+- modified weather app to handle errors when no city is specified
+- also handle when API KEY is not present or API returns an error
+- simple bootstrap look applied (not really finished)

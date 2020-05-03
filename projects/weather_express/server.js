@@ -15,25 +15,49 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  const vars = {
-    msg: 'Hello, world.'
-  }
-  res.render('pages/weather', vars);
+  res.render("pages/weather", {msg: 'Please specify a city', city: '', weather: ''});
 });
 
+app.post('/weather', function(req, res) {
+  const city = req.body.city;
+  if (!city) {
+    res.redirect('/');
+  } else {
+    res.redirect('/weather/' + city);
+  }
+});
+
+app.get('/weather', function(req, res){
+  res.redirect('/');  
+});
+
+// use request module for HTTPS request and JSON parser of response
 app.get('/weather/:city', function(req, res) {
   // api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
-  const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + req.params.city + '&appid=' + process.env.API_WEATHER;
-  console.log('Fetching ', url);
-  request(url, {
-    json: true
-  }, (err, response, body) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(body);
-    res.render("pages/weather", {msg: "Success!", city: req.params.city, weather: body.weather[0].description});
-  });
+  if (!process.env.API_WEATHER) {
+    res.send('Openweathermap API not properly configured.');
+    console.log(process.env);
+  } else {
+    const url = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&q=' + req.params.city + '&appid=' + process.env.API_WEATHER;
+    console.log('Fetching ', url);
+    request(url, {
+      json: true
+    }, (err, response, body) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log(body);
+      if (!req.params.city) {
+        res.send('No city specified.');
+      } else {
+        if (!body.weather) {
+          res.send('Problem retrieving weather from API.');
+        } else {
+          res.render("pages/weather", {msg: "Success!", city: req.params.city, weather: body.weather[0].description, temp: body.main.temp});
+        }
+      }
+    });
+  }
 });
 
 app.listen(3000, function() {
