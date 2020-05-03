@@ -28,3 +28,5 @@ Notes
 - also handle when API KEY is not present or API returns an error
 - simple bootstrap look applied (not really finished)
 - installed Heroku command line from new heroku account
+- initialize stub for Mailchimp app (express)
+- ready to start coding lesson 257
