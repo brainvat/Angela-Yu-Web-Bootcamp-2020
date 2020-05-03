@@ -27,3 +27,4 @@ Notes
 - modified weather app to handle errors when no city is specified
 - also handle when API KEY is not present or API returns an error
 - simple bootstrap look applied (not really finished)
+- installed Heroku command line from new heroku account
