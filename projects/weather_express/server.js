@@ -15,7 +15,10 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.render("pages/weather", {msg: 'Please specify a city', city: '', weather: ''});
+  res.render("pages/weather", {
+      msg: 'Please specify a city',
+      city: '', weather: ''
+    });
 });
 
 app.post('/weather', function(req, res) {
@@ -28,7 +31,7 @@ app.post('/weather', function(req, res) {
 });
 
 app.get('/weather', function(req, res){
-  res.redirect('/');  
+  res.redirect('/');
 });
 
 // use request module for HTTPS request and JSON parser of response
@@ -38,7 +41,9 @@ app.get('/weather/:city', function(req, res) {
     res.send('Openweathermap API not properly configured.');
     console.log(process.env);
   } else {
-    const url = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&q=' + req.params.city + '&appid=' + process.env.API_WEATHER;
+    const url = 'https://api.openweathermap.org/data/2.5/weather?' +
+                'units=imperial&q=' + req.params.city +
+                '&appid=' + process.env.API_WEATHER;
     console.log('Fetching ', url);
     request(url, {
       json: true
@@ -53,7 +58,12 @@ app.get('/weather/:city', function(req, res) {
         if (!body.weather) {
           res.send('Problem retrieving weather from API.');
         } else {
-          res.render("pages/weather", {msg: "Success!", city: req.params.city, weather: body.weather[0].description, temp: body.main.temp});
+          res.render("pages/weather", {
+            msg: "Success!",
+            city: req.params.city,
+            weather: body.weather[0].description,
+            temp: body.main.temp
+          });
         }
       }
     });

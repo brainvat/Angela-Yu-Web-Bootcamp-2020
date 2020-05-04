@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+<body class="text-center">
+  <form class="form-signin" action="/subscribe" method="post">
+    <img class="mb-4" src="images/brainvat.png" alt="" width="150" height="150">
+    <h1 class="h3 mb-3 font-weight-normal">Brainvat Subscription</h1>
+    <p>
+      <i>There was a problem adding your subscription. Please try again.</i>
+    </p>
+    <label for="inputFirstName" class="sr-only">First Name</label>
+    <input type="text" name="firstName" class="form-control top" placeholder="First Name " value="<%= vars.firstName %>" required autofocus>
+    <label for="inputLastName" class="sr-only">Last Name</label>
+    <input type="text" name="lastName" class="form-control middle" placeholder="Last Name" value="<%= vars.lastName %>" required>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" name="email" class="form-control bottom" placeholder="Your Email" value="<%= vars.email %>" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Subscribe</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020 Brainvat Labs</p>
+  </form>
+</body>
+<%- include('../partials/footer.ejs') %>
