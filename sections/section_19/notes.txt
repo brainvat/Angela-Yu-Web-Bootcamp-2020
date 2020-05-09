@@ -30,3 +30,8 @@ Notes
 - installed Heroku command line from new heroku account
 - initialize stub for Mailchimp app (express)
 - ready to start coding lesson 257
+
+08-MAY-2020
+
+- created singleton instance for MailChimp module
+- got basic HTTPS request/response handler stubbed out
