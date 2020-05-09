@@ -1,15 +1,10 @@
 //jshint esversion:6
 const express = require('express');
 const bodyParser = require('body-parser');
-const request = require('request');
+// const request = require('request');
 const path = require('path');
+const mailchimp = require('./models/mailchimp.js');
 // const ejs = require('ejs');
-
-if (process.env.NODE_ENV !== 'production') {
-  const dotenv = require('dotenv');
-  dotenv.config();
-  console.log('Mailchimp API KEY is ', process.env.MAILCHIMP_API);
-}
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -29,17 +24,18 @@ app.post('/subscribe', function(req, resp) {
     firstName: req.body.firstName || '',
     lastName: req.body.lastName || '',
     email: req.body.email || '',
-    unsubscribed: req.body.unsubscribed == "yes" ? 1 : 0,
+    subscribed: req.body.unsubscribed == "yes" ? 0 : 1,
     edit: req.body.edit || 0
   };
 
   if (vars.firstName == '' || vars.lastName == '' || vars.email == '') {
     resp.render('pages/failure', {pageTitle: 'Failure!', vars: vars});
   } else {
+    const success = mailchimp.subscribe(vars);
     if (req.body.edit == 1) {
-      resp.render('pages/success', {pageTitle: 'Updated!', vars: vars});
+      resp.render('pages/success', {pageTitle: 'Updated!', vars: vars, api_string: success});
     } else {
-      resp.render('pages/success', {pageTitle: 'Success!', vars: vars});
+      resp.render('pages/success', {pageTitle: 'Success!', vars: vars, api_string: success});
     }
   }
 });

@@ -15,7 +15,7 @@
     <input type="email" name="email-ignore" class="form-control bottom" value="<%= vars.email %>" disabled>
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" name="unsubscribed" value="yes" <%= vars.unsubscribed == 1 ? "checked" : "" %>> Unsubscribe
+        <input type="checkbox" name="unsubscribed" value="yes" <%= vars.subscribed == 0 ? "checked" : "" %>> Unsubscribe
         <input type="hidden" name="edit" value="1" />
         <input type="hidden" name="email" value="<%= vars.email %>" />
       </label>
