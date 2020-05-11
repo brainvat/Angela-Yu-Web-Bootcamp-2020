@@ -47,3 +47,6 @@ Notes
 
   # https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
   git subtree push --prefix my-app heroku master
+
+- debugged package.json for script: start errors on Heroku
+- added mailchimp environment variables to heroku app and passed live tests
