@@ -17,6 +17,7 @@ app.use(express.static('public'));
 app.get('/', function(req, resp){
   resp.render('pages/signup', {pageTitle: 'Sign Up'});
 });
+const port = process.env.PORT || process.env.LOCAL_PORT;
 
 app.post('/subscribe', function(req, resp) {
   console.log(req.body);
@@ -40,8 +41,8 @@ app.post('/subscribe', function(req, resp) {
   }
 });
 
-app.listen(3000, function(){
-  console.log('Express server listening on port 3000');
+app.listen(port, function(){
+  console.log(`Express server listening on port ${port}`);
 });
 
 
