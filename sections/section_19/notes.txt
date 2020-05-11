@@ -40,3 +40,10 @@ Notes
 
 - completed mailchimp API singleton
 - debugged subscribe / unsubscribe / resubscribe patterns
+
+11-MAY-2020
+
+- deployed mailchimp_express subtree to heroku:
+
+  # https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+  git subtree push --prefix my-app heroku master
