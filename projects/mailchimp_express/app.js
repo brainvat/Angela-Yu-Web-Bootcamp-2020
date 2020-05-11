@@ -20,22 +20,22 @@ app.get('/', function(req, resp){
 
 app.post('/subscribe', function(req, resp) {
   console.log(req.body);
+  const status = req.body.update_existing == 1 ? (req.body.unsubscribed == "yes" ? "unsubscribed" : "subscribed") : "subscribed";
   const vars = {
     firstName: req.body.firstName || '',
     lastName: req.body.lastName || '',
     email: req.body.email || '',
-    subscribed: req.body.unsubscribed == "yes" ? 0 : 1,
-    edit: req.body.edit || 0
+    status: status,
+    update_existing: req.body.update_existing || 0
   };
 
   if (vars.firstName == '' || vars.lastName == '' || vars.email == '') {
     resp.render('pages/failure', {pageTitle: 'Failure!', vars: vars});
   } else {
-    const success = mailchimp.subscribe(vars);
-    if (req.body.edit == 1) {
-      resp.render('pages/success', {pageTitle: 'Updated!', vars: vars, api_string: success});
+    if (req.body.update_existing == 1) {
+      resp.render('pages/success', {pageTitle: 'Updated!', vars: vars, api_string: mailchimp.update(vars)});
     } else {
-      resp.render('pages/success', {pageTitle: 'Success!', vars: vars, api_string: success});
+      resp.render('pages/success', {pageTitle: 'Success!', vars: vars, api_string: mailchimp.subscribe(vars)});
     }
   }
 });

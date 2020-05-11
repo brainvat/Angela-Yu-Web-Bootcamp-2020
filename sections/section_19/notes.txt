@@ -35,3 +35,8 @@ Notes
 
 - created singleton instance for MailChimp module
 - got basic HTTPS request/response handler stubbed out
+
+10-MAY-2020
+
+- completed mailchimp API singleton
+- debugged subscribe / unsubscribe / resubscribe patterns
