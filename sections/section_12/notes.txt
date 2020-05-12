@@ -11,3 +11,4 @@ Notes
 
 - complete Boss Challenge 1 - Dicee Game
 - initialize drum kit challenge from resource files
+- complete drum kit challenge complete with keypress events
