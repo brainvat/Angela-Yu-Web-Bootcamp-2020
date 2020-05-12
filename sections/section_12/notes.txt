@@ -10,3 +10,4 @@ Notes
 Notes
 
 - complete Boss Challenge 1 - Dicee Game
+- initialize drum kit challenge from resource files
