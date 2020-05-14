@@ -1,0 +1,5 @@
+13-MAY-2020
+
+Notes
+
+- watch video 338 describing SQL vs NoSQL

@@ -1,0 +1,7 @@
+13-MAY-2020
+
+Notes
+
+- watch videos 346, 347, 348, 349, 350, 351, 352, 353, 354, 355 on mongodb
+- upgrade homebrew and install mongodb-community and mongodb-community-shell
+- successfully validate mongodb services are running via mongo shell
