@@ -4,3 +4,10 @@ Notes
 
 - watched videos 191 and 215 at 2x speed on iPad from home
 - will come back and do the Simon game boss challenge later
+
+14-MAY-2020
+
+Notes
+
+- game logic for simon game is working
+- but problems with asychronous sounds and jquery animation is causing strange UI behaviors
