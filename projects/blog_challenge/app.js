@@ -46,7 +46,7 @@ app.post('/compose', function(req, resp){
 
 
 // use dotenv for port in case this is hosted on Heroku
-const port = process.env.PORT || process.env.LOCAL_PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, function(){
   console.log(`Express server listening on port ${port}`);
 });
