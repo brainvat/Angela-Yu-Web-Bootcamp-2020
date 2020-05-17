@@ -16,6 +16,9 @@ var Blog = (function() {
 
   this.log = function() {
     console.log(JSON.stringify(this.posts));
+    // this.posts.forEach(post => {
+    //   console.log(post.title);
+    // });
   };
 
   console.log('Blog singleton created');

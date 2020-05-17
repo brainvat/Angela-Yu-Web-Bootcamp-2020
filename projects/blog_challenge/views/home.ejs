@@ -4,4 +4,10 @@
 <p>
   <%= msg %>
 </p>
+<% for(i = 0; i < blog.posts.length; i++) { %>
+<h2><%= blog.posts[i].title %></h2>
+<p>
+  <%= blog.posts[i].post %>
+</p>
+<% } %>
 <%- include('partials/footer.ejs') %>

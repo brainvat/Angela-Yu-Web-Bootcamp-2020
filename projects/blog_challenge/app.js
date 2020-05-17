@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', function(req, resp){
-  resp.render('home.ejs', {msg: homeStartingContent});
+  resp.render('home.ejs', {msg: homeStartingContent, blog: blog});
 });
 
 app.get('/contact', function(req, resp){
@@ -36,13 +36,12 @@ app.get('/compose', function(req, resp){
 });
 
 app.post('/compose', function(req, resp){
-  vars = {
+  const vars = {
     title: req.body.title || 'No title',
-    body: req.body.body || 'No body'
+    post: req.body.post || 'No post'
   };
   blog.publish(vars);
-  blog.log();
-  resp.send('OK');
+  resp.redirect('/');
 });
 
 
