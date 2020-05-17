@@ -22,15 +22,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', function(req, resp){
-  resp.render('home.ejs', {msg: 'Unfinished home page'});
+  resp.render('home.ejs', {msg: homeStartingContent});
 });
 
 app.get('/contact', function(req, resp){
-  resp.render('contact.ejs', {msg: 'Unfinished contact page'});
+  resp.render('contact.ejs', {msg: contactContent});
 });
 
 app.get('/about', function(req, resp){
-  resp.render('about.ejs', {msg: 'Unfinished about page'});
+  resp.render('about.ejs', {msg: aboutContent});
 });
 
 // use dotenv for port in case this is hosted on Heroku
