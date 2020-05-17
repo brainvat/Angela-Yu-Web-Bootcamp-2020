@@ -44,6 +44,8 @@ app.post('/compose', function(req, resp){
   resp.redirect('/');
 });
 
+// setup mock blog posts for testing
+blog.buildMocks();
 
 // use dotenv for port in case this is hosted on Heroku
 const port = process.env.PORT || 3000;
