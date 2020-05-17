@@ -27,9 +27,9 @@ $(document).ready(function() {
       sound = 'sounds/wrong.mp3';
       restart_game = true;
     }
-    // var sound = new Audio(soundFile);
-    // sound.play();
-    // sleep(500);
+    var sound = new Audio(soundFile);
+    sound.play();
+    sleep(500);
     if (finished) {
       nextPlay();
     } else if (restart_game) {
@@ -44,14 +44,29 @@ $(document).ready(function() {
     gamePattern.push(color);
     for(i = 0; i < gamePattern.length; i++) {
       flashButton(gamePattern[i]);
+      sleep(300);
     }
+    // recursiveFlash(gamePattern.length);
     console.log(gamePattern);
     pos = 1;
   }
 
+  function recursiveFlash(i) {
+    if (i<0) return;
+    setTimeout(function(){
+      flashButton(gamePattern[gamePattern.legnth - i]);
+      recursiveFlash(i-1);
+    }, 300);
+  }
+
   function flashButton(c) {
-    $("#" + c).fadeOut(100).fadeIn(100);
-    sleep(1000);
+    // $("#" + c).fadeOut(100).fadeIn(100);
+    // sleep(1000);
+    // Use Angela's solution
+    $('#' + c).addClass('pressed');
+    setTimeout(function(){
+      $('#' + c).removeClass('pressed');
+    }, 300);
   }
 
   function restart() {
