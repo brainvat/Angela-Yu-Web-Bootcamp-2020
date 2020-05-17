@@ -1,0 +1,6 @@
+16-MAY-2020
+
+Notes
+
+- set up node environment for Blog Challenge
+- stub out views and singleton model for the exercise
