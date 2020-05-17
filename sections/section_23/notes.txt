@@ -5,3 +5,10 @@ Notes
 - set up node environment for Blog Challenge
 - stub out views and singleton model for the exercise
 - watched all videos and completed all challenges up to and including challenge 15
+
+17-MAY-2020
+
+Notes
+
+- fixed bootstrap sticky bottom footer problem
+  https://stackoverflow.com/questions/21933356/sticky-bootstrap-footer-overlapping-content-of-page

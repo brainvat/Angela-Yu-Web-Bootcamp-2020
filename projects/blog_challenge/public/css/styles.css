@@ -1,3 +1,14 @@
+/* https://stackoverflow.com/questions/21933356/sticky-bootstrap-footer-overlapping-content-of-page */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
 .input-margin {
   margin-bottom: 10px;
 }
