@@ -33,6 +33,15 @@ app.get('/about', function(req, resp){
   resp.render('about.ejs', {msg: aboutContent});
 });
 
+app.get('/compose', function(req, resp){
+  resp.render('compose.ejs');
+});
+
+app.post('/compose', function(req, resp){
+  resp.send('OK');
+});
+
+
 // use dotenv for port in case this is hosted on Heroku
 const port = process.env.PORT || process.env.LOCAL_PORT;
 app.listen(port, function(){
