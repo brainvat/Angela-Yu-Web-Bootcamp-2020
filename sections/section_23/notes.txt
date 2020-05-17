@@ -4,3 +4,4 @@ Notes
 
 - set up node environment for Blog Challenge
 - stub out views and singleton model for the exercise
+- watched all videos and completed all challenges up to and including challenge 15
