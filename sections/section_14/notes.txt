@@ -11,3 +11,11 @@ Notes
 
 - game logic for simon game is working
 - but problems with asychronous sounds and jquery animation is causing strange UI behaviors
+
+16-MAY-2020
+
+Notes
+
+- downloaded completed project to compare behavior of Angela's code to my downloaded
+- realized I am showing too many steps in the flashback code
+- finally have a fully finished working version of the game!

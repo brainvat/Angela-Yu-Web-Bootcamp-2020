@@ -29,12 +29,14 @@ $(document).ready(function() {
     }
     var sound = new Audio(soundFile);
     sound.play();
-    sleep(500);
-    if (finished) {
-      nextPlay();
-    } else if (restart_game) {
-      restart();
-    }
+    flashButton(btnColor);
+    setTimeout(function(){
+      if (finished) {
+        nextPlay();
+      } else if (restart_game) {
+        restart();
+      }
+    }, 1000);
   });
 
   function nextPlay() {
@@ -42,22 +44,24 @@ $(document).ready(function() {
     gameLength += 1;
     var color = nextSequence();
     gamePattern.push(color);
-    for(i = 0; i < gamePattern.length; i++) {
-      flashButton(gamePattern[i]);
-      sleep(300);
-    }
+    // only show the last button in the current sequence
+    // for(i = 0; i < gamePattern.length; i++) {
+    //   flashButton(gamePattern[i]);
+    //   sleep(300);
+    // }
     // recursiveFlash(gamePattern.length);
+    flashButton(gamePattern[gamePattern.length - 1]);
     console.log(gamePattern);
     pos = 1;
   }
 
-  function recursiveFlash(i) {
-    if (i<0) return;
-    setTimeout(function(){
-      flashButton(gamePattern[gamePattern.legnth - i]);
-      recursiveFlash(i-1);
-    }, 300);
-  }
+  // function recursiveFlash(i) {
+  //   if (i<0) return;
+  //   setTimeout(function(){
+  //     flashButton(gamePattern[gamePattern.legnth - i]);
+  //     recursiveFlash(i-1);
+  //   }, 300);
+  // }
 
   function flashButton(c) {
     // $("#" + c).fadeOut(100).fadeIn(100);
