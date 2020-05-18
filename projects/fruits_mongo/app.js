@@ -79,8 +79,41 @@ if (!resetDB()) {
         console.log(`${person.name} age ${person.age}`);
       });
     }
+  });
+
+  Fruit.updateOne({
+    name: 'Peach'
+  }, {
+    rating: 9
+  }, e => {
+    if (e) {
+      console.log(`Error updating Peach ${e}`);
+    } else {
+      console.log('Updated Peach record');
+    }
+  });
+
+  Fruit.deleteMany({
+    name: 'Peach'
+  }, function(e, res) {
+    if (e) {
+      console.log(`Error deleting Peach ${e}`);
+    } else {
+      console.log(`Succesfully deleted ${res.deletedCount} Peach`);
+    }
+  });
+
+  Person.deleteMany({
+    name: 'Angela'
+  }, function(e, res) {
+    if (e) {
+      console.log(`Error deleting Person ${e}`);
+    } else {
+      console.log(`Succesfully deleted ${res.deletedCount} People`);
+    }
     mongoose.connection.close();
   });
+
 }
 
 // mongoose.connection.close();
