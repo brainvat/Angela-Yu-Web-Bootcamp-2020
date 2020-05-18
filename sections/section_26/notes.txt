@@ -11,3 +11,10 @@ Notes
 Notes
 
 - recreate CRUD examples in mongodb via shell on local machine
+
+18-MAY-2020
+
+Notes
+
+- create app.js with native mongo drivers
+- complete exercises through lesson 355 including command line reset parameter
