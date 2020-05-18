@@ -1,46 +1,95 @@
 //jshint esversion:6
 const mongoose = require('mongoose');
 
-const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
-  review: String
-});
-
-const personSchema = new mongoose.Schema({
-  name: String,
-  age: Number
-});
-
-const Fruit = mongoose.model('Fruit', fruitSchema);
-const Person = mongoose.model('Person', personSchema);
+const myArgs = process.argv.slice(2);
+var shouldThrow = false;
+if (myArgs.length > 0 && myArgs[0] == 'throws') {
+  shouldThrow = true;
+}
 
 mongoose.connect('mongodb://localhost:27017/fruitsDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
-resetDB();
-
-Fruit.find(function(err, fruits) {
-  if (err) {
-    console.log(`ERROR: ${err}`);
-  } else {
-    // console.log(`Fruits:\n ${fruits}');
-    console.log(`Found ${fruits.length} fruits in collection`);
-    fruits.forEach(fruit => {
-      console.log(fruit.name);
-    });
-  }
-  mongoose.connection.close();
+const fruitSchema = new mongoose.Schema({
+  name: String,
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10
+  },
+  review: String
 });
+
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: function() {
+      return this.name.length > 3;
+    }
+  },
+  age: {
+    type: Number,
+    min: 1
+  }
+});
+
+const Fruit = mongoose.model('Fruit', fruitSchema);
+const Person = mongoose.model('Person', personSchema);
+
+if (!resetDB()) {
+  const Peach = new Fruit({
+    name: 'Peach',
+    rating: shouldThrow ? 24 : 10,
+    review: 'Exceptionally amazing fruit'
+  });
+
+  Peach.save().catch(e => {
+    console.log(`Coud not save Peach\n${e}`);
+  });
+
+  const Angela = new Person({
+    name: shouldThrow ? 'An' : 'Angela',
+    age: 24
+  });
+
+  Angela.save().catch(e => {
+    console.log(`Could not save Angela\n${e}`);
+  });
+
+  Fruit.find(function(err, fruits) {
+    if (err) {
+      console.log(`ERROR: ${err}`);
+    } else {
+      // console.log(`Fruits:\n ${fruits}');
+      console.log(`Found ${fruits.length} fruits in collection`);
+      fruits.forEach(fruit => {
+        console.log(fruit.name);
+      });
+    }
+  });
+
+  Person.find(function(err, people) {
+    if (err) {
+      console.log(`ERROR: ${err}`);
+    } else {
+      console.log(`Found ${people.length} people in collection`);
+      people.forEach(person => {
+        console.log(`${person.name} age ${person.age}`);
+      });
+    }
+    mongoose.connection.close();
+  });
+}
+
+// mongoose.connection.close();
 
 function resetDB() {
 
   // https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/
-  var myArgs = process.argv.slice(2);
   if (myArgs.length == 0 || myArgs[0] != 'reset') {
-    return;
+    return false;
   }
 
   Fruit.deleteMany({
@@ -100,6 +149,10 @@ function resetDB() {
     name: 'Allen',
     age: '42'
   });
-  person.save();
+  person.save().then(e => {
+    mongoose.connection.close()
+  });
+
+  return true;
 
 }
