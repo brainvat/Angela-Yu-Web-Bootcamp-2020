@@ -32,30 +32,59 @@ const personSchema = new mongoose.Schema({
   age: {
     type: Number,
     min: 1
-  }
+  },
+  favoriteFruit: fruitSchema
 });
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 const Person = mongoose.model('Person', personSchema);
 
 if (!resetDB()) {
-  const Peach = new Fruit({
+  const peach = new Fruit({
     name: 'Peach',
     rating: shouldThrow ? 24 : 10,
     review: 'Exceptionally amazing fruit'
   });
 
-  Peach.save().catch(e => {
-    console.log(`Coud not save Peach\n${e}`);
+  peach.save().catch(e => {
+    if (e) {
+      console.log(`Coud not save Peach\n${e}`);
+    }
   });
 
-  const Angela = new Person({
+  const angela = new Person({
     name: shouldThrow ? 'An' : 'Angela',
     age: 24
   });
 
-  Angela.save().catch(e => {
-    console.log(`Could not save Angela\n${e}`);
+  angela.save().catch(e => {
+    if (e) {
+      console.log(`Could not save Angela\n${e}`);
+    }
+  });
+
+  const john = new Person({
+    name: 'John',
+    age: 34,
+    favoriteFruit: peach,
+  });
+
+  john.save().catch(e => {
+    if (e) {
+      console.log(`Could not save John\n${e}`);
+    }
+  })
+
+  Person.updateOne({
+    name: 'Angela'
+  }, {
+    favoriteFruit: peach
+  }, function(e, res) {
+    if (e) {
+      console.log(`Could not add peach to Angela ${e}`);
+    } else {
+      console.log('Updated angela');
+    }
   });
 
   Fruit.find(function(err, fruits) {
@@ -182,6 +211,7 @@ function resetDB() {
     name: 'Allen',
     age: '42'
   });
+
   person.save().then(e => {
     mongoose.connection.close()
   });

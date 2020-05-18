@@ -1,0 +1,7 @@
+18-MAY-2020
+
+Notes
+
+- watch lessons 357, 358, 359, 360, 361, and 362
+- complete mongoose exercises for CRUD operations
+- implement callbacks and logging for mongoose operations
