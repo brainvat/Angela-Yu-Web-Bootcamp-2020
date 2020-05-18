@@ -12,3 +12,9 @@ Notes
 
 - fixed bootstrap sticky bottom footer problem
   https://stackoverflow.com/questions/21933356/sticky-bootstrap-footer-overlapping-content-of-page
+- completed all 21 challenges for final solution
+- implemented random latin text via npm module
+- watched videos 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308,
+  309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 323, 324, 325, 326, 327,
+  328, 329, 330, 331, 332, 333, 334, 335, and 336
+

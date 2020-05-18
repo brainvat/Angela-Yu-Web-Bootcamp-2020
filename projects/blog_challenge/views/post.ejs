@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+<% if (!posts) { %>
+<h1>No matching posts found</h1>
+<p>
+  <%- msg %>
+</p>
+<% } else { %>
+<%  for(i = (posts.length - 1); i >= 0; i--) { %>
+<h1><%= posts[i].title %></h1>
+<p>
+  <%- posts[i].post %>
+</p>
+<p><i><small><%= posts[i].date %></small></i></p>
+<%  } %>
+<% } %>
+<p>
+  <strong>Contribute to our blog!</strong> <a href="/compose">Click here</a> | <a href="/">Home</a>
+</p>
+
+<%- include('partials/footer.ejs') %>

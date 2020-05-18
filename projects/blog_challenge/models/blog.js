@@ -1,7 +1,23 @@
 //jshint esversion:6
 // https://www.npmjs.com/package/dateformat
-var dateFormat = require('dateformat');
+const dateFormat = require('dateformat');
 dateFormat.masks.blogTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
+
+// https://www.npmjs.com/package/lodash
+const _ = require('lodash');
+
+// https://www.npmjs.com/package/lorem-ipsum
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4
+  },
+  wordsPerSentence: {
+    max: 10,
+    min: 4
+  }
+});
 
 var Blog = (function() {
   this.posts = [];
@@ -11,17 +27,33 @@ var Blog = (function() {
     const nowString = dateFormat(now, "blogTime");
 
     post.date = nowString;
+    post.id = _.kebabCase(post.title);
     posts.push(post);
   };
 
-  this.buildMocks = function(n = 3) {
+  this.buildMocks = function(n = 8) {
     for (i=0; i < n; i++) {
       this.publish({
-        title: `Test ${i}`,
-        post: `Lorem ipsum dolor sit amet ${i}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad ${i} minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+        title: `${lorem.generateSentences(1)}`,
+        post: `${lorem.generateParagraphs(7).replace(/\n/g, '</p><p>')}`
       });
     }
     console.log(`${i} mock posts added to blog`);
+  };
+
+  this.findPosts = function(title) {
+    const title_id = _.kebabCase(title);
+    // console.log(`Kebabcase search term is ${title_id}`);
+    var filteredPosts = [];
+
+    posts.forEach(post => {
+      // console.log(`Kebabcase title term is ${_.kebabCase(post.title)}`);
+      if (post.id === title_id) {
+        filteredPosts.push(post);
+      }
+    });
+
+    return filteredPosts;
   };
 
   this.log = function() {
