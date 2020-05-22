@@ -27,11 +27,16 @@ var Todolist = (function() {
     return _name;
   };
 
+  this.forEach = function(callback) {
+      return _.forEach(tasks, callback);
+  };
+
   this.add = function(title) {
     const now = new Date();
     const nowString = dateFormat(now, "taskTime");
 
     var task = {
+      title: title,
       date: nowString,
       id: _.kebabCase(title),
       finished: false

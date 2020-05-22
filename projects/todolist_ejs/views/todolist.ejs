@@ -8,9 +8,9 @@
     <h1><%- todolist.name() %></h1>
 
     <ul>
-      <li>Buy food</li>
-      <li>Cook food</li>
-      <li>Eat food</li>
+      <% todolist.forEach(task => { %>
+      <li><%= task.title %></li>
+      <% }); %>
     </ul>
 
   </body>
