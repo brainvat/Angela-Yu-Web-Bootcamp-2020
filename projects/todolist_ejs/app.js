@@ -16,8 +16,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', function(req, resp) {
-  resp.send('Hello');
+  resp.render('todolist', {todolist: todolist});
 });
+
+// set up Todolist
+todolist.buildMocks();
 
 // use dotenv for port in case this is hosted on Heroku
 const port = process.env.PORT || 3000;
