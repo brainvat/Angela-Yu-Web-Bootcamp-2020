@@ -1,0 +1,7 @@
+22-MAY-2020
+
+Notes
+
+- watched lessons 402, 403, 404, 406, 407, and 408
+- already familiar with dotenv, have been using it since I first started syncing projects in this course to github
+- noted slightly different syntax Angela is using to require the dotenv module
