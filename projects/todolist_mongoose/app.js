@@ -1,5 +1,5 @@
 //jshint esversion:6
-const USE_MONGO = false;
+const USE_MONGO = true;
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -41,7 +41,7 @@ if (USE_MONGO) {
     todolist.buildMocks();
   });
 } else {
-  todolist.buildMocks();  
+  todolist.buildMocks();
 }
 
 // use dotenv for port in case this is hosted on Heroku
@@ -49,3 +49,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, function(){
   console.log(`Express server listening on port ${port}`);
 });
+
+//
+// git subtree push --prefix projects/todolist_mongoose heroku-todolist master
+//
