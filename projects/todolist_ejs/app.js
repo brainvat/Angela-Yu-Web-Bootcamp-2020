@@ -19,6 +19,20 @@ app.get('/', function(req, resp) {
   resp.render('todolist', {todolist: todolist});
 });
 
+app.post('/', function(req, resp) {
+  todolist.add(req.body.newItem);
+  resp.redirect('/');
+});
+
+app.get('/about', function(req, resp) {
+  resp.render('about');
+});
+
+app.post('/update', function(req, resp) {
+  todolist.update(req.body.item);
+  resp.redirect('/');
+});
+
 // set up Todolist
 todolist.buildMocks();
 

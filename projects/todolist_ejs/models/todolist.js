@@ -1,7 +1,7 @@
 //jshint esversion:6
 // https://www.npmjs.com/package/dateformat
 const dateFormat = require('dateformat');
-dateFormat.masks.taskTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
+dateFormat.masks.taskTime = 'dddd, mmmm dS, yyyy, h:MM TT';
 
 // https://www.npmjs.com/package/lorem-ipsum
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
@@ -20,59 +20,58 @@ const lorem = new LoremIpsum({
 const _ = require('lodash');
 
 var Todolist = (function() {
-  this.tasks = [];
+  this._tasks = [];
   this._name = 'Today';
+  this._lastUpdated = "";
 
   this.name = function() {
     return _name;
   };
 
+  this.lastUpdated = function() {
+    return _lastUpdated;
+  };
+
+  this.update = function () {
+    _lastUpdated = dateFormat(new Date(), "taskTime");
+    return lastUpdated();
+  };
+
   this.forEach = function(callback) {
-      return _.forEach(tasks, callback);
+      return _.forEach(_tasks, callback);
   };
 
   this.add = function(title) {
-    const now = new Date();
-    const nowString = dateFormat(now, "taskTime");
-
+    if (title.length < 1) return;
     var task = {
       title: title,
-      date: nowString,
+      date: update(),
       id: _.kebabCase(title),
       finished: false
     };
 
-    tasks.push(task);
+    _tasks.push(task);
   };
 
   this.buildMocks = function(n = 3) {
     for (i=0; i < n; i++) {
-      this.add(`${lorem.generateSentences(1)}`);
+      add(`${lorem.generateSentences(1)}`);
     }
+    update();
     console.log(`${i} mock tasks added to todolist`);
   };
 
-  this.delete = function(title) {
-    const title_id = _.kebabCase(title);
-    // console.log(`Kebabcase search term is ${title_id}`);
-    var filteredTasks = [];
-    var deletedTasks = []
-
-    tasks.forEach(task => {
-      // console.log(`Kebabcase title term is ${_.kebabCase(post.title)}`);
-      if (task.id === title_id) {
-        deletedTasks.push(task);
-      } else {
-        filteredTasks.push(task);
+  this.update = function(item) {
+    _tasks.forEach(task => {
+      if (task.id === item) {
+        task.finished = !task.finished;
+        console.log(task);
       }
     });
-
-    tasks = filteredTasks;
-    return deletedTasks;
   };
 
   this.log = function() {
-    console.log(JSON.stringify(this.tasks));
+    console.log(JSON.stringify(_tasks));
   };
 
   console.log('Todolist singleton created');

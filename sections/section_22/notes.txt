@@ -13,4 +13,4 @@ Notes
 Notes
 
 - stubbed out singleton and EJS templates for Todolist app
-
+- completed EJS Todolist app with todolist.js singleton and array-based back-end
