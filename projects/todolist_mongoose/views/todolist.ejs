@@ -1,0 +1,22 @@
+<%- include('partials/header'); %>
+  <div class="box" id="heading">
+    <h1><%- todolist.name() %></h1>
+  </div>
+  <div class="box">
+    <% todolist.forEach(task => { %>
+    <div class="item">
+      <input class="checkbox" type="checkbox" name="item" value="<%= task.id %>" <%= task.finished ? "checked" : "" %> onChange="this.form.submit();">
+      <p>
+        <%= task.title %>
+      </p>
+    </div>
+    <% }); %>
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <button type="submit" name="list" value="<%= todolist.name %>">+</button>
+    </form>
+  </div>
+  <div id="timestamp">
+    <i>Last updated <%= todolist.lastUpdated() %></i>
+  </div>
+<%- include('partials/footer'); %>
