@@ -35,6 +35,13 @@ app.post('/update', function(req, resp) {
   resp.redirect('/');
 });
 
+app.get('/activate-mongo', function(req, resp) {
+  todolist.enableMongo(function() {
+    todolist.buildMocks();
+    resp.redirect('/');
+  });
+});
+
 // set up Todolist
 if (USE_MONGO) {
   todolist.enableMongo(function() {
