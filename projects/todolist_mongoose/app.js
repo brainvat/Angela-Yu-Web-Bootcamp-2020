@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+const USE_MONGO = false;
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -16,7 +16,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', function(req, resp) {
-  resp.render('todolist', {todolist: todolist});
+  todolist.refeshTasks(function() {
+    resp.render('todolist', {todolist: todolist});
+  });
 });
 
 app.post('/', function(req, resp) {
@@ -34,8 +36,13 @@ app.post('/update', function(req, resp) {
 });
 
 // set up Todolist
-todolist.buildMocks();
-todolist.enableMongo();
+if (USE_MONGO) {
+  todolist.enableMongo(function() {
+    todolist.buildMocks();
+  });
+} else {
+  todolist.buildMocks();  
+}
 
 // use dotenv for port in case this is hosted on Heroku
 const port = process.env.PORT || 3000;

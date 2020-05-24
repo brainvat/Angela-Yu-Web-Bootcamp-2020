@@ -42,7 +42,20 @@ var Todolist = (function() {
   };
 
   this.forEach = function(callback) {
-      return _.forEach(_tasks, callback);
+    return _.forEach(_tasks, callback);
+  };
+
+  this.refeshTasks = function(callback) {
+    if (_backend == 'mongo') {
+      Task.find(function(err, foundTasks){
+        if (!err) {
+          _tasks = foundTasks;
+          callback();
+        }
+      });
+    } else {
+      callback();
+    }
   };
 
   this.add = function(title) {
@@ -54,15 +67,58 @@ var Todolist = (function() {
       finished: false
     };
 
+    if (_tasks.length > 10) {
+        console.log('Safety precaution: stopping inserts to prevent spam');
+        return;
+    };
+
     _tasks.push(task);
+    if (_backend == 'mongo') {
+      var newTask = new Task(task);
+      newTask.save(function(err, insertedTask) {
+        if (err) {
+          console.log('Problem inserting new task into mongo');
+        } else {
+          console.log(`Inserted document ${insertedTask}`);
+        }
+      });
+    };
   };
 
   this.buildMocks = function(n = 3) {
+    if (_backend == 'array' && _tasks.length < 1) {
+      addMocks();
+      return;
+    } else {
+      if (_backend == 'mongo') {
+        console.log('Checking mongodb for existing tasks');
+        Task.find(function(err, foundTasks) {
+          if (err) {
+            console.log('Error connecting to mongo, falling back to array');
+            _backend = 'array';
+            buildMocks();
+          } else {
+            if (foundTasks.length < 1) {
+              addMocks(n);
+            } else {
+              _tasks = foundTasks;
+              console.log(`Found ${foundTasks.length} tasks in mongodb, no need to create new ones`);
+            }
+          }
+        });
+        return;
+      }
+    }
+    console.log('No mocks needed');
+  };
+
+  this.addMocks = function(n = 3) {
+    console.log(`Building mock tasks on backend ${_backend}`);
     for (i=0; i < n; i++) {
       add(`${lorem.generateSentences(1)}`);
     }
     updateTime();
-    console.log(`${i} mock tasks added to todolist`);
+    console.log(`${i} mock tasks added to todolist at ${_lastUpdated}`);
   };
 
   this.update = function(item) {
@@ -78,10 +134,15 @@ var Todolist = (function() {
     console.log(JSON.stringify(_tasks));
   };
 
-  this.enableMongo = function() {
+  this.enableMongo = function(callback) {
     mongoose.connection.on('connected', function() {
-      this._backend = 'mongo';
+      _backend = 'mongo';
       console.log('Switched Todolist to mongo backend');
+      if (callback) {
+        callback();
+      } else {
+        console.log('No callback for enableMongo function');
+      }
     });
     mongoose.connect(_mconnect, {useNewUrlParser: true, useUnifiedTopology: true});
   };
@@ -94,6 +155,7 @@ var Todolist = (function() {
   const tasksSchema = {
     title: String,
     date: String,
+    id: String,
     finished: Boolean
   };
   this.Task = mongoose.model('Task', tasksSchema);
