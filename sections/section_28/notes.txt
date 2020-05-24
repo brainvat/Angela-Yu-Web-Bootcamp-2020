@@ -4,4 +4,15 @@ Notes
 
 - watched lessons 357, 358, 359, 360, and 361
 
+24-MAY-2020
+
+Notes
+
+- copied from todolist_ejs to start project
+- refactored todolist.js singleton to use mongodb backend
+- refactored mongodb connection string to allow for remote mongo atlas
+- configured and pushed to heroku with array backend for now
+
+  git subtree push --prefix projects/todolist_mongoose heroku-todolist master
+
 
