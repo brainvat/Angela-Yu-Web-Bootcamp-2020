@@ -22,19 +22,19 @@ const _ = require('lodash');
 var Todolist = (function() {
   this._tasks = [];
   this._name = 'Today';
-  this._lastUpdated = "";
+  this._lastUpdated = null;
 
   this.name = function() {
     return _name;
   };
 
   this.lastUpdated = function() {
-    return _lastUpdated;
+    return _lastUpdated ||  updateTime();
   };
 
-  this.update = function () {
+  this.updateTime = function () {
     _lastUpdated = dateFormat(new Date(), "taskTime");
-    return lastUpdated();
+    return _lastUpdated;
   };
 
   this.forEach = function(callback) {
@@ -45,7 +45,7 @@ var Todolist = (function() {
     if (title.length < 1) return;
     var task = {
       title: title,
-      date: update(),
+      date: updateTime(),
       id: _.kebabCase(title),
       finished: false
     };
@@ -57,7 +57,7 @@ var Todolist = (function() {
     for (i=0; i < n; i++) {
       add(`${lorem.generateSentences(1)}`);
     }
-    update();
+    updateTime();
     console.log(`${i} mock tasks added to todolist`);
   };
 
