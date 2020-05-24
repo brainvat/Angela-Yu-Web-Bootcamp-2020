@@ -58,11 +58,7 @@ p {
   color: #00204a;
 }
 
-form {
-  margin: 0;
-}
-
-form .item {
+form.item {
   text-align: center;
   margin-left: 20px;
 }
