@@ -4,3 +4,10 @@ Notes
 
 - watched lessons 378 and 385
 
+
+25-MAY-2020
+
+Notes
+
+- stub out mongo version of blog using EJS version as starter
+
