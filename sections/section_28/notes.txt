@@ -15,4 +15,9 @@ Notes
 
   git subtree push --prefix projects/todolist_mongoose heroku-todolist master
 
+25-MAY-2020
+
+Notes
+
+- implement task delete functionality in singleton and ejs templates
 
