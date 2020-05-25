@@ -45,11 +45,11 @@ app.get('/:customListName', function(req, resp) {
 
 // Other methods
 
-app.get('/about', function(req, resp) {
+app.get('/p/about', function(req, resp) {
   resp.render('about');
 });
 
-app.get('/activate-mongo', function(req, resp) {
+app.get('/p/activate-mongo', function(req, resp) {
   todolist.enableMongo(function() {
     todolist.buildMocks();
     resp.redirect('/');
