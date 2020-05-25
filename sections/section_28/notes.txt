@@ -22,3 +22,11 @@ Notes
 - implement task delete functionality in singleton and ejs templates
 - implement custom list capability (different methodology than shown in Angela's course in order to make it easier to switch back and forth between array-based and mongo-based backends)
 - implement navigation system for custom lists
+
+26-MAY-2020
+
+Notes
+
+- finally figured out why mongoose connection string wasn't working for MongoDB atlas; needed to use Node.js connection string for 2.2.12 or later
+- fully tested publishing todolist app to heroku using array and mongodb atlas backends; works locally for array, mongodb-community, and mongodb atlas backends
+
