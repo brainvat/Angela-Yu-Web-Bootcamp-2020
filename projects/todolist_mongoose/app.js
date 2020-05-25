@@ -16,24 +16,37 @@ if (process.env.NODE_ENV !== 'production') {
 
 const USE_MONGO = process.argv.includes('USE_ARRAY') ? false : true;
 
+// Today methods
+
 app.get('/', function(req, resp) {
-  todolist.refeshTasks(function() {
-    resp.render('todolist', {todolist: todolist});
+  todolist.refeshTasks('Today', function() {
+    resp.render('todolist', {todolist: todolist, list: 'Today'});
   });
 });
 
 app.post('/', function(req, resp) {
-  todolist.add(req.body.newItem);
-  resp.redirect('/');
-});
-
-app.get('/about', function(req, resp) {
-  resp.render('about');
+  todolist.add(req.body.list, req.body.newItem);
+  resp.redirect('/' + (req.body.list == 'Today' ? '' : req.body.list));
 });
 
 app.post('/delete', function(req, resp) {
-  todolist.delete(req.body.item_id);
-  resp.redirect('/');
+  todolist.delete(req.body.list, req.body.item_id);
+  resp.redirect('/' + (req.body.list == 'Today' ? '' : req.body.list));
+});
+
+// Custom List methods, supported only for Mongo backend
+
+app.get('/:customListName', function(req, resp) {
+  const list = req.params.customListName;
+  todolist.refeshTasks(list, function() {
+    resp.render('todolist', {todolist: todolist, list: list});
+  });
+});
+
+// Other methods
+
+app.get('/about', function(req, resp) {
+  resp.render('about');
 });
 
 app.get('/activate-mongo', function(req, resp) {

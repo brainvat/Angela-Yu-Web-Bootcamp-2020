@@ -19,11 +19,16 @@ h1 {
 }
 
 #heading {
-  background-color: #A683E3;
+  background-color: #6630c2;
   text-align: center;
 }
 
-#timestamp {
+#lists {
+  background-color: #403e3f;
+  text-align: center;
+}
+
+.timestamp {
   text-align: center;
   max-width: 400px;
   font-size: 0.75rem;

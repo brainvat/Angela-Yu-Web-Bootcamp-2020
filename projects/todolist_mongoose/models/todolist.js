@@ -25,29 +25,30 @@ const lorem = new LoremIpsum({
 var Todolist = (function() {
   this._backend = 'array';
   this._tasks = [];
-  this._name = 'Today';
   this._lastUpdated = null;
 
-  this.name = function() {
-    return _name;
-  };
-
   this.lastUpdated = function() {
-    return _lastUpdated ||  updateTime();
+    return _lastUpdated || updateTime();
   };
 
-  this.updateTime = function () {
+  this.updateTime = function() {
     _lastUpdated = dateFormat(new Date(), "taskTime");
     return _lastUpdated;
   };
 
-  this.forEach = function(callback) {
-    return _.forEach(_tasks, callback);
+  this.forEach = function(list, callback) {
+    return _.forEach(_tasks.filter(task => task.list == list), callback);
   };
 
-  this.refeshTasks = function(callback) {
+  this.lists = function() {
+    let lists = new Set();
+    _tasks.forEach(task => lists.add(task.list));
+    return lists;
+  }
+
+  this.refeshTasks = function(list, callback) {
     if (_backend == 'mongo') {
-      Task.find(function(err, foundTasks){
+      Task.find(function(err, foundTasks) {
         if (!err) {
           _tasks = foundTasks;
           callback();
@@ -58,23 +59,24 @@ var Todolist = (function() {
     }
   };
 
-  this.add = function(title) {
+  this.add = function(list, title) {
     if (title.length < 1) return;
     var task = {
       title: title,
       date: updateTime(),
       id: _.kebabCase(title),
-      finished: false
+      finished: false,
+      list: list
     };
 
-    if (_tasks.length > 10) {
-        console.log('Safety precaution: stopping inserts to prevent spam');
-        return;
+    if (_tasks.length > 100) {
+      console.log('Safety precaution: stopping inserts to prevent spam');
+      return;
     };
 
     _tasks.push(task);
     console.log(`Added task:\n ${JSON.stringify(task)}`);
-    
+
     if (_backend == 'mongo') {
       var newTask = new Task(task);
       newTask.save(function(err, insertedTask) {
@@ -87,13 +89,13 @@ var Todolist = (function() {
     };
   };
 
-  this.delete = function(item_id) {
+  this.delete = function(list, item_id) {
     var filteredTasks = [];
     var deletedTasks = [];
 
     if (_backend == 'array') {
       _tasks.forEach(task => {
-        if (task.id === item_id) {
+        if (task.id === item_id && task.list === list) {
           deletedTasks.push(task);
         } else {
           filteredTasks.push(task);
@@ -102,7 +104,10 @@ var Todolist = (function() {
       _tasks = filteredTasks;
       console.log(`Deleted ${deletedTasks.length} tasks:\n ${JSON.stringify(deletedTasks)}`);
     } else {
-      Task.deleteOne({id: item_id}, function(err, result) {
+      Task.deleteOne({
+        id: item_id,
+        list: list
+      }, function(err, result) {
         if (!err) {
           console.log(`Mongo delete result:\n ${JSON.stringify(result)}`);
         } else {
@@ -141,20 +146,11 @@ var Todolist = (function() {
 
   this.addMocks = function(n = 3) {
     console.log(`Building mock tasks on backend ${_backend}`);
-    for (i=0; i < n; i++) {
-      add(`${lorem.generateSentences(1)}`);
+    for (i = 0; i < n; i++) {
+      add('Today', `${lorem.generateSentences(1)}`);
     }
     updateTime();
     console.log(`${i} mock tasks added to todolist at ${_lastUpdated}`);
-  };
-
-  this.update = function(item) {
-    _tasks.forEach(task => {
-      if (task.id === item) {
-        task.finished = !task.finished;
-        console.log(task);
-      }
-    });
   };
 
   this.log = function() {
@@ -171,7 +167,10 @@ var Todolist = (function() {
         console.log('No callback for enableMongo function');
       }
     });
-    mongoose.connect(_mconnect, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(_mconnect, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
   };
 
   const mauth = process.env.MONGO_USER ? `${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@` : '';
@@ -183,7 +182,8 @@ var Todolist = (function() {
     title: String,
     date: String,
     id: String,
-    finished: Boolean
+    finished: Boolean,
+    list: String
   };
   this.Task = mongoose.model('Task', tasksSchema);
 

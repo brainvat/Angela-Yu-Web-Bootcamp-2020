@@ -20,4 +20,5 @@ Notes
 Notes
 
 - implement task delete functionality in singleton and ejs templates
-
+- implement custom list capability (different methodology than shown in Angela's course in order to make it easier to switch back and forth between array-based and mongo-based backends)
+- implement navigation system for custom lists
