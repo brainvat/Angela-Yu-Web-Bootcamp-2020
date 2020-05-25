@@ -1,5 +1,4 @@
 //jshint esversion:6
-const USE_MONGO = true;
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -14,6 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
   const dotenv = require('dotenv');
   dotenv.config();
 }
+
+const USE_MONGO = process.argv.includes('USE_ARRAY') ? false : true;
 
 app.get('/', function(req, resp) {
   todolist.refeshTasks(function() {
@@ -30,8 +31,8 @@ app.get('/about', function(req, resp) {
   resp.render('about');
 });
 
-app.post('/update', function(req, resp) {
-  todolist.update(req.body.item);
+app.post('/delete', function(req, resp) {
+  todolist.delete(req.body.item_id);
   resp.redirect('/');
 });
 

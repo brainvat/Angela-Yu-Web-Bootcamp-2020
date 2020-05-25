@@ -73,6 +73,8 @@ var Todolist = (function() {
     };
 
     _tasks.push(task);
+    console.log(`Added task:\n ${JSON.stringify(task)}`);
+    
     if (_backend == 'mongo') {
       var newTask = new Task(task);
       newTask.save(function(err, insertedTask) {
@@ -83,6 +85,31 @@ var Todolist = (function() {
         }
       });
     };
+  };
+
+  this.delete = function(item_id) {
+    var filteredTasks = [];
+    var deletedTasks = [];
+
+    if (_backend == 'array') {
+      _tasks.forEach(task => {
+        if (task.id === item_id) {
+          deletedTasks.push(task);
+        } else {
+          filteredTasks.push(task);
+        }
+      });
+      _tasks = filteredTasks;
+      console.log(`Deleted ${deletedTasks.length} tasks:\n ${JSON.stringify(deletedTasks)}`);
+    } else {
+      Task.deleteOne({id: item_id}, function(err, result) {
+        if (!err) {
+          console.log(`Mongo delete result:\n ${JSON.stringify(result)}`);
+        } else {
+          console.log(`Mongo error result: ${err}`);
+        }
+      });
+    }
   };
 
   this.buildMocks = function(n = 3) {
@@ -170,8 +197,8 @@ module.exports = Todolist;
 // use admin
 // db.createUser(
 //   {
-//     user: “brainvat”,
+//     user: 'brainvat',
 //     pwd: passwordPrompt(), // or cleartext password
-//     roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+//     roles: [ { role: 'userAdminAnyDatabase', db: 'admin' }, 'readWriteAnyDatabase' ]
 //   }
 // )

@@ -4,9 +4,9 @@
 </div>
 <div class="box">
   <% todolist.forEach(task => { %>
-  <form action="/update" method="post">
+  <form action="/delete" method="post">
     <div class="item">
-      <input class="checkbox" type="checkbox" name="item" value="<%= task.id %>" <%= task.finished ? "checked" : "" %>>
+      <input class="checkbox" type="checkbox" name="item_id" value="<%= task.id %>" <%= task.finished ? "checked" : "" %> onChange="this.form.submit()">
       <p>
         <%= task.title %>
       </p>
@@ -14,7 +14,7 @@
   </form>
   <% }); %>
   <form class="item" action="/" method="post">
-    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off" autofocus="true">
     <button type="submit" name="list" value="<%= todolist.name %>">+</button>
   </form>
 </div>
