@@ -126,7 +126,7 @@ var Todolist = (function() {
         console.log('Checking mongodb for existing tasks');
         Task.find(function(err, foundTasks) {
           if (err) {
-            console.log('Error connecting to mongo, falling back to array');
+            console.log(`Error connecting to mongo, falling back to array.\n${err}`);
             _backend = 'array';
             buildMocks();
           } else {
@@ -170,14 +170,19 @@ var Todolist = (function() {
     mongoose.connect(_mconnect, {
       useNewUrlParser: true,
       useUnifiedTopology: true
+    }).catch(err => {
+        console.log(`Mongoose connection error:\n${_mconnect}\n${err}`);
     });
   };
 
   const mauth = process.env.MONGO_USER ? `${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@` : '';
   const mhost = process.env.MONGO_HOST || 'localhost';
   const mport = process.env.MONGO_PORT || 27017;
-  this._mconnect = `mongodb://${mauth}${mhost}:${mport}/todolist`;
-
+  if (process.env.USE_ATLAS == 'true') {
+    this._mconnect = `mongodb://${mauth}${mhost}`;
+  } else {
+    this._mconnect = `mongodb://${mauth}${mhost}:${mport}/todolist`;
+  };
   const tasksSchema = {
     title: String,
     date: String,
