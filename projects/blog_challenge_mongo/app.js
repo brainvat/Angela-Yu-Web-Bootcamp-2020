@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const blog = require('./models/blog.js');
+const blog = require('./models/blog-posts.js');
 const lodash = require('lodash');
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -21,7 +21,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.get('/', function(req, resp) {
-  resp.render('home.ejs', {msg: homeStartingContent, posts: blog.posts, _: lodash});
+  blog.fetchPosts(function(posts) {
+    resp.render('home.ejs', {msg: homeStartingContent, posts: posts, _: lodash});
+  });
 });
 
 app.get('/contact', function(req, resp) {
@@ -34,13 +36,13 @@ app.get('/about', function(req, resp) {
 
 app.get('/post/:title', function(req, resp) {
   // console.log(`${req.params.title}`);
-  const posts = blog.findPosts(req.params.title);
-
-  if (posts.length > 0) {
-    resp.render('post.ejs', {msg: '', posts: posts});
-  } else {
-    resp.render('post.ejs', {msg: `No matching posts found for <strong>${req.params.title}</strong>.`, posts: null});
-  }
+  const posts = blog.findPosts(req.params.title, function (posts){
+    if (posts.length > 0) {
+      resp.render('post.ejs', {msg: '', posts: posts});
+    } else {
+      resp.render('post.ejs', {msg: `No matching posts found for <strong>${req.params.title}</strong>.`, posts: null});
+    }
+  });
 });
 
 app.get('/compose', function(req, resp) {

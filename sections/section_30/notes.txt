@@ -4,10 +4,11 @@ Notes
 
 - watched lessons 378 and 385
 
-
 25-MAY-2020
 
 Notes
 
 - stub out mongo version of blog using EJS version as starter
+- replace array based back-end with mongodb entirely (no array based fallback)
+- only needed to change the singleton and a little of app.js; no changes needed to EJS
 
