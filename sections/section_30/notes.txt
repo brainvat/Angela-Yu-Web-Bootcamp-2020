@@ -11,4 +11,5 @@ Notes
 - stub out mongo version of blog using EJS version as starter
 - replace array based back-end with mongodb entirely (no array based fallback)
 - only needed to change the singleton and a little of app.js; no changes needed to EJS
+- corrected bugs and successfully deployed app to Heroku with MongoDB Atlas backend
 
