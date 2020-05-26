@@ -78,7 +78,7 @@ var Blog = (function() {
   };
 
   this.buildMocks = function(n = 8) {
-    BlogPost.count({}, function(err, count) {
+    BlogPost.countDocuments({}, function(err, count) {
       if (count == 0) {
         for (i = 0; i < n; i++) {
           this.publish({
