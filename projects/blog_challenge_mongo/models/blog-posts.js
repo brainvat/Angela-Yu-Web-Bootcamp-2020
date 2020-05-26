@@ -39,14 +39,14 @@ const mport = process.env.MONGO_PORT || 27017;
 if (process.env.USE_ATLAS == 'true') {
   mconnect = `mongodb://${mauth}${mhost}`;
 } else {
-  _mconnect = `mongodb://${mauth}${mhost}:${mport}/blogDB`;
+  mconnect = `mongodb://${mauth}${mhost}:${mport}/blogDB`;
 };
 
-mongoose.connect(_mconnect, {
+mongoose.connect(mconnect, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).catch(err => {
-  console.log(`Mongoose connection error:\n${_mconnect}\n${err}`);
+  console.log(`Mongoose connection error:\n${mconnect}\n${err}`);
 });
 
 var Blog = (function() {
