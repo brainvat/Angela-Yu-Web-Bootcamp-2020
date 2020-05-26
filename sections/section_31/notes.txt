@@ -4,3 +4,11 @@ Notes
 
 - watched lessons 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, and 400
 - already familiar with postman from other courses
+
+26-MAY-2020
+
+Notes
+
+- Download Robo3T GUI
+- stub out working mongo/express app and wiki.js model for restful API project
+

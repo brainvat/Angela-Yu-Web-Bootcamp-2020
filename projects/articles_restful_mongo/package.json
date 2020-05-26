@@ -1,0 +1,24 @@
+{
+  "name": "wiki_restful_mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "lodash": "^4.17.15",
+    "lorem-ipsum": "^2.0.3",
+    "md5": "^2.2.1",
+    "mongoose": "^5.9.16",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}
