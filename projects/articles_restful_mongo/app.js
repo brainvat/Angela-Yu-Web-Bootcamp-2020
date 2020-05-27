@@ -117,5 +117,5 @@ app.listen(port, function() {
 });
 
 //
-// git subtree push --prefix projects/wiki_restful_mongo heroku-wiki master
+// git subtree push --prefix projects/articles_restful_mongo heroku-restful master
 //
