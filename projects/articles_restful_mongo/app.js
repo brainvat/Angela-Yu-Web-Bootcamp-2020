@@ -18,7 +18,10 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-app.get('/articles', function(req, resp) {
+// route chaining
+app.route('/articles')
+
+.get(function(req, resp) {
   wiki.fetchArticles(function(err, foundArticles) {
     if (!err) {
       resp.json(foundArticles || [{}]);
@@ -27,9 +30,9 @@ app.get('/articles', function(req, resp) {
       console.log(`GET ERROR:\n${err}`);
     }
   });
-});
+})
 
-app.post('/articles', function(req, resp) {
+.post(function(req, resp) {
   var post = {
     title: req.body.title,
     text: req.body.text
@@ -47,9 +50,9 @@ app.post('/articles', function(req, resp) {
     resp.json({});
     console.log('Invalid request');
   }
-});
+})
 
-app.delete('/articles', function(req, resp) {
+.delete(function(req, resp) {
   wiki.deleteArticles(function(err, results) {
     if (!err) {
       resp.json(results);
@@ -59,6 +62,8 @@ app.delete('/articles', function(req, resp) {
     }
   });
 });
+
+// no route chaining
 
 app.get('/articles/:id', function(req, resp) {
   wiki.findArticle(req.params.id, function(err, foundArticle) {
