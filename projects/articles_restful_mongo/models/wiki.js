@@ -56,7 +56,7 @@ var Wiki = (function() {
         callback(err, foundArticles);
       } else {
         callback(err, [{}]);
-        console.log(`FETCH ERROR:\n${err}`);
+        // console.log(`FETCH ERROR:\n${err}`);
       }
     });
   };
@@ -72,7 +72,7 @@ var Wiki = (function() {
     newArticle.save(function(err, insertedArticle) {
       if (err) {
         callback(err, []);
-        console.log(`INSERT ERROR:\n${err}`);
+        // console.log(`INSERT ERROR:\n${err}`);
       } else {
         callback(err, insertedArticle);
       }
@@ -85,36 +85,77 @@ var Wiki = (function() {
         callback(err, results);
       } else {
         callback(err, [{}]);
-        console.log(`DELETE ALL ERROR:\n${err}`);
+        // console.log(`DELETE ALL ERROR:\n${err}`);
       }
     });
   };
 
-  this.deleteArticle = function(title, callback) {
-    const title_id = _.kebabCase(title);
+  this.deleteArticle = function(id, callback) {
     Article.deleteOne({
-      id: title_id
+      id: id
     }, function(err, results) {
       if (!err) {
         callback(err, results);
       } else {
         callback(err, [{}]);
-        console.log(`DELETE ERROR:\n${err}`);
+        // console.log(`DELETE ONE ERROR:\n${err}`);
       }
     });
   };
 
-  this.findArticles = function(title, callback) {
-    const title_id = _.kebabCase(title);
-    Article.find({
-      id: title_id
+  this.findArticle = function(id, callback) {
+    Article.findOne({
+      id: id
     }, function(err, foundArticles) {
       if (!err) {
         callback(err, foundArticles);
       } else {
         callback(err, [{}]);
+        // console.log(`FIND ERROR: ${err}`);
       }
     });
+  };
+
+  this.replaceArticle = function(id, newArticle, callback) {
+    newArticle.id = id;
+    Article.update({
+      id: id
+    }, newArticle, {
+      overwrite: true
+    }, function(err, results) {
+      if (!err) {
+        callback(err, results);
+      } else {
+        callback(err, {});
+        // console.log(`REPLACE ARTICLE ERROR:\n${err}`);
+      }
+    });
+  };
+
+  this.updateArticle = function(id, updatedProperties, callback) {
+    Article.updateOne({
+      id: id
+    }, {
+      $set: updatedProperties
+    }, function(err, results) {
+      if (!err) {
+        callback(err, results);
+      } else {
+        callback(err, {});
+        // console.log(`UPDATE ARTICLE ERROR:\n${err}`);
+      }
+    });
+  };
+
+  this.deleteArticle = function(id, callback) {
+    Article.deleteOne({
+      id: id
+    }, function(err) {
+      if (err) {
+        // console.log(`DELETE ONE ERROR:\n${err}`);
+      }
+      callback(err);
+    })
   };
 
   this.buildMocks = function(n = 8) {

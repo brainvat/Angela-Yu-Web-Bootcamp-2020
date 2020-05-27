@@ -11,4 +11,5 @@ Notes
 
 - Download Robo3T GUI
 - stub out working mongo/express app and wiki.js model for restful API project
+- completed full RESTful routes using separate route calls
 
