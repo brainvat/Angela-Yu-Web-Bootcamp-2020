@@ -16,8 +16,46 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-app.get('/', function(req, resp) {
-  resp.send('Hello');
+app.get('/articles', function(req, resp) {
+  wiki.fetchArticles(function(err, foundArticles) {
+    if (!err) {
+      resp.json(foundArticles);
+    } else {
+      resp.json([{}]);
+      console.log(`GET ERROR:\n${err}`);
+    }
+  });
+});
+
+app.post('/articles', function(req, resp) {
+  var post = {
+    title: req.body.title,
+    text: req.body.text
+  };
+  if (post.title && post.text) {
+    wiki.publish(post, function(err, newArticle) {
+      if (!err) {
+        resp.json(newArticle);
+      } else {
+        resp.json({});
+        console.log(`POST ERROR:\n${err}`);
+      }
+    });
+  } else {
+    resp.json({});
+    console.log('Invalid request');
+  }
+});
+
+app.delete('/articles', function(req, resp) {
+    wiki.deleteArticles(function(err, deletedArticles) {
+      if (!err) {
+        resp.json(deletedArticles);
+      } else {
+        resp.json([{}]);
+        console.log(`DELETE ERROR:\n${err}`);
+      }
+    });
 });
 
 // setup mock articles for testing

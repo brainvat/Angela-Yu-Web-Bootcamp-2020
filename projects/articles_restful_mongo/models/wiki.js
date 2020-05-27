@@ -53,14 +53,15 @@ var Wiki = (function() {
   this.fetchArticles = function(callback) {
     Article.find({}, function(err, foundArticles) {
       if (!err) {
-        callback(foundArticles);
+        callback(err, foundArticles);
       } else {
-        callback([]);
+        callback(err, [{}]);
+        console.log(`FETCH ERROR:\n${err}`);
       }
     });
   };
 
-  this.publish = function(article) {
+  this.publish = function(article, callback) {
     const now = new Date();
     const nowString = dateFormat(now, "articleTime");
 
@@ -70,9 +71,48 @@ var Wiki = (function() {
     var newArticle = new Article(article);
     newArticle.save(function(err, insertedArticle) {
       if (err) {
-        console.log('Problem inserting new article into mongo');
+        callback(err, []);
+        console.log(`INSERT ERROR:\n${err}`);
       } else {
-        console.log(`Inserted document ${insertedArticle}`);
+        callback(err, insertedArticle);
+      }
+    });
+  };
+
+  this.deleteArticles = function(callback) {
+    Article.deleteMany(function(err, results) {
+      if (!err) {
+        callback(err, results);
+      } else {
+        callback(err, [{}]);
+        console.log(`DELETE ALL ERROR:\n${err}`);
+      }
+    });
+  };
+
+  this.deleteArticle = function(title, callback) {
+    const title_id = _.kebabCase(title);
+    Article.deleteOne({
+      id: title_id
+    }, function(err, results) {
+      if (!err) {
+        callback(err, results);
+      } else {
+        callback(err, [{}]);
+        console.log(`DELETE ERROR:\n${err}`);
+      }
+    });
+  };
+
+  this.findArticles = function(title, callback) {
+    const title_id = _.kebabCase(title);
+    Article.find({
+      id: title_id
+    }, function(err, foundArticles) {
+      if (!err) {
+        callback(err, foundArticles);
+      } else {
+        callback(err, [{}]);
       }
     });
   };
@@ -84,22 +124,13 @@ var Wiki = (function() {
           this.publish({
             title: `${lorem.generateSentences(1)}`,
             text: `${lorem.generateParagraphs(7).replace(/\n/g, '</p><p>')}`
+          }, function(err, insertedArticle) {
+            // do nothing
           });
         }
         console.log(`${i} mock articles added to wiki`);
       } else {
         console.log('wikiDB is not empty, skipping mocks');
-      }
-    });
-  };
-
-  this.findArticles = function(title, callback) {
-    const title_id = _.kebabCase(title);
-    Article.find({id: title_id}, function(err, foundArticles) {
-      if (!err) {
-        callback(foundArticles);
-      } else {
-        callback([]);
       }
     });
   };
