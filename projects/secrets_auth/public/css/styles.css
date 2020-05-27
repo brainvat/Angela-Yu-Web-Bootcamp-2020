@@ -14,3 +14,8 @@ body {
   color: #fff;
   background-color: #000;
 }
+
+#error {
+  color: red;
+  background-color: yellow;
+}
