@@ -6,18 +6,23 @@ if (process.env.NODE_ENV !== 'production') {
 
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const encrypt = require('mongoose-encryption');
 
 // https://www.npmjs.com/package/dateformat
 const dateFormat = require('dateformat');
 dateFormat.masks.createdTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
 
-const userSchema = {
+// LEVEL 2 - Database encryption
+const userSchema = new mongoose.Schema({
   email: String,
   created_on: String,
   password: String,
   first_name: String,
   last_name: String
-};
+});
+const secret = process.env.SECRET || 'ourlittlesecret';
+userSchema.plugin(encrypt, {secret: secret, encryptedFields: ['password]']});
+
 const User = mongoose.model('User', userSchema);
 
 var mconnect = '';
@@ -37,7 +42,6 @@ mongoose.connect(mconnect, {
   console.log(`Mongoose connection error:\n${mconnect}\n${err}`);
 });
 
-// LEVEL 1 - Username + password
 var Users = (function() {
   this.register = function(user_info, callback) {
     const newUser = new User({
