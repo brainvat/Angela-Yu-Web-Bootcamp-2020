@@ -37,8 +37,8 @@ mongoose.connect(mconnect, {
   console.log(`Mongoose connection error:\n${mconnect}\n${err}`);
 });
 
+// LEVEL 1 - Username + password
 var Users = (function() {
-
   this.register = function(user_info, callback) {
     const newUser = new User({
       email: user_info.username,
@@ -70,7 +70,6 @@ var Users = (function() {
         }
       });
   };
-
 
   console.log('Users singleton created');
   return this;
