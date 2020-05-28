@@ -5,14 +5,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const mongoose = require('mongoose');
-const _ = require('lodash');
-const encrypt = require('mongoose-encryption');
+const md5 = require('md5');
 
 // https://www.npmjs.com/package/dateformat
 const dateFormat = require('dateformat');
 dateFormat.masks.createdTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
 
-// LEVEL 2 - Database encryption
+// LEVEL 3 - Password Hashing
 const userSchema = new mongoose.Schema({
   email: String,
   created_on: String,
@@ -20,9 +19,6 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String
 });
-const secret = process.env.SECRET || 'ourlittlesecret';
-userSchema.plugin(encrypt, {secret: secret, encryptedFields: ['password]']});
-
 const User = mongoose.model('User', userSchema);
 
 var mconnect = '';
@@ -46,7 +42,7 @@ var Users = (function() {
   this.register = function(user_info, callback) {
     const newUser = new User({
       email: user_info.username,
-      password: user_info.password,
+      password: md5(user_info.password),
       created_on: dateFormat(new Date(), "createdTime")
     });
     newUser.save(function(err) {
@@ -63,7 +59,7 @@ var Users = (function() {
           callback(err, false);
         } else {
           if (foundUser) {
-            if (foundUser.password === user_info.password) {
+            if (foundUser.password === md5(user_info.password)) {
               callback(err, true);
             } else {
               callback(err, false);

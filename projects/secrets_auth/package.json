@@ -15,11 +15,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
-    "lodash": "^4.17.15",
     "md5": "^2.2.1",
-    "mongoose": "^5.9.16",
-    "mongoose-encryption": "^2.0.2",
-    "path": "^0.12.7",
-    "request": "^2.88.2"
+    "mongoose": "^5.9.16"
   }
 }

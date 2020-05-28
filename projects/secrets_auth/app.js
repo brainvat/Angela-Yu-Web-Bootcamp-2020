@@ -3,7 +3,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const lodash = require('lodash');
 const users = require('./models/users.js');
 
 const app = express();
