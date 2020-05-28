@@ -5,13 +5,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const mongoose = require('mongoose');
-const md5 = require('md5');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // https://www.npmjs.com/package/dateformat
 const dateFormat = require('dateformat');
 dateFormat.masks.createdTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
 
-// LEVEL 3 - Password Hashing
+// LEVEL 4 - Password Hashing & Salting
 const userSchema = new mongoose.Schema({
   email: String,
   created_on: String,
@@ -40,13 +41,19 @@ mongoose.connect(mconnect, {
 
 var Users = (function() {
   this.register = function(user_info, callback) {
-    const newUser = new User({
-      email: user_info.username,
-      password: md5(user_info.password),
-      created_on: dateFormat(new Date(), "createdTime")
-    });
-    newUser.save(function(err) {
-      callback(err);
+    bcrypt.hash(user_info.password, saltRounds, function(err, hash) {
+      if (!err) {
+        const newUser = new User({
+          email: user_info.username,
+          password: hash,
+          created_on: dateFormat(new Date(), "createdTime")
+        });
+        newUser.save(function(error) {
+          callback(error);
+        });
+      } else {
+        callback(err);
+      }
     });
   };
 
@@ -59,11 +66,13 @@ var Users = (function() {
           callback(err, false);
         } else {
           if (foundUser) {
-            if (foundUser.password === md5(user_info.password)) {
-              callback(err, true);
-            } else {
-              callback(err, false);
-            }
+            bcrypt.compare(user_info.password, foundUser.password, function(error, result) {
+              if (result === true) {
+                callback(error, true);
+              } else {
+                callback(error, false);
+              }
+            });
           } else {
             callback(err, false);
           }
