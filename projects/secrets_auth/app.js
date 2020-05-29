@@ -61,7 +61,8 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   googleId: String,
-  facebookId: String
+  facebookId: String,
+  secret: String
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
@@ -140,7 +141,14 @@ app.get('/auth/facebook/secrets',
 
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {
-    resp.render('secrets');
+    User.find({
+      secret: { $ne: null }
+    }, function(err, foundUsers) {
+      if (err) {
+        console.log(`No secrets found:\n${err}`);
+      }
+      resp.render('secrets', { usersWithSecrets: foundUsers || [] });
+    });
   } else {
     resp.render('login', {
       errorMsg: 'You must be logged in to view the secret'
@@ -214,11 +222,43 @@ app.route('/logout')
 app.route('/submit')
 
   .get(function(req, resp) {
-    resp.render('submit');
+    if (req.isAuthenticated()) {
+      resp.render('submit');
+    } else {
+      resp.render('login', {
+        errorMsg: 'You must be logged in to submit secrets'
+      });
+    }
   })
 
   .post(function(req, resp) {
-    resp.redirect('/');
+    const submittedSecret = req.body.secret;
+    console.log(req.user);
+
+    User.findById(req.user.id, function(err, foundUser) {
+      if (err) {
+        console.log(`SUBMIT SECRET ERROR:\n${err}`);
+        resp.render('login', {
+          errorMsg: 'You must be logged in to submit secrets'
+        });
+      } else {
+        if (foundUser) {
+          foundUser.secret = submittedSecret;
+          foundUser.save(function(error){
+            if (error) {
+              console.log(`SECRET SAVE ERROR:\n${error}`);
+              resp.redirect('/');
+            } else {
+              resp.redirect('/secrets');
+            }
+          });
+        } else {
+          resp.render('login', {
+            errorMsg: 'You must be logged in to submit secrets'
+          });
+        }
+      };
+    });
   });
 
 // use dotenv for port in case this is hosted on Heroku
