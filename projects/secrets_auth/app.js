@@ -7,6 +7,9 @@ const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const findOrCreate = require('mongoose-findorcreate');
+
 const dateFormat = require('dateformat');
 dateFormat.masks.createdTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
 
@@ -49,24 +52,57 @@ mongoose.connect(mconnect, {
 });
 mongoose.set("useCreateIndex", true);
 
-// LEVEL 5 - Cookies & Sessions via Passport
+// LEVEL 6 - OATH via Google OATH 2.0
 const userSchema = new mongoose.Schema({
   email: String,
   created_on: String,
   password: String,
   first_name: String,
-  last_name: String
+  last_name: String,
+  googleId: String
 });
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
 const User = mongoose.model('User', userSchema);
 
 passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(function(user, done){
+  done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 app.get('/', function(req, resp) {
   resp.render('home');
 });
+
+app.get('/auth/google', function(req, resp) {
+  passport.authenticate('google', { scope: ['google'] });
+});
+
+app.get('/auth/google/secrets',
+  passport.authenticate({ failureRedirect: '/login' }),
+  function (req, resp) {
+    res.redirect('/secrets');
+  }
+);
 
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {

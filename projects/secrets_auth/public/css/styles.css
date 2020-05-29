@@ -16,6 +16,7 @@ body {
 }
 
 #error {
-  color: red;
-  background-color: yellow;
+  color: #ffbcbc;
+  background-color: #562349;
+  margin-bottom: -1rem;
 }
