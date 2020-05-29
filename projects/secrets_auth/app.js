@@ -94,6 +94,7 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+// LEVEL 6 - OATH via Facebook OATH 2.0
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
