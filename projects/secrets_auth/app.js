@@ -104,8 +104,12 @@ passport.use(new FacebookStrategy({
     User.findOrCreate({
       facebookId: profile.id
     }, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
+      if (err) {
+        console.log(`PASSPORT LOGIN ERROR:\n${err}`);
+        return done(err, null);
+      } else {
+        done(null, user);
+      }
     });
   }
 ));
@@ -128,8 +132,10 @@ app.get('/auth/google/secrets',
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/secrets',
-  passport.authenticate('facebook', { successRedirect: '/secrets',
-                                      failureRedirect: '/login' }));
+  passport.authenticate('facebook', {
+    successRedirect: '/secrets',
+    failureRedirect: '/login'
+  }));
 
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {
