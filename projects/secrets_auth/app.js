@@ -8,6 +8,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 
 const dateFormat = require('dateformat');
@@ -59,7 +60,8 @@ const userSchema = new mongoose.Schema({
   password: String,
   first_name: String,
   last_name: String,
-  googleId: String
+  googleId: String,
+  facebookId: String
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
@@ -92,6 +94,22 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: process.env.FACEBOOK_CLIENT_HOST + 'auth/facebook/secrets'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
+    User.findOrCreate({
+      facebookId: profile.id
+    }, function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+
 app.get('/', function(req, resp) {
   resp.render('home');
 });
@@ -106,6 +124,12 @@ app.get('/auth/google/secrets',
     successRedirect: '/secrets',
     failureRedirect: '/login'
   }));
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/secrets',
+  passport.authenticate('facebook', { successRedirect: '/secrets',
+                                      failureRedirect: '/login' }));
 
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {
