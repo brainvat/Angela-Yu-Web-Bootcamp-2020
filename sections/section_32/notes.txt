@@ -13,3 +13,15 @@ Notes
 - stub out starter secrets app from download and add basic routes for home, login, register, and submit
 - complete login and register routes for username/password combo in lesson 404
 
+28-MAY-2020
+
+Notes
+
+- complete login and register works for Google OATH on both local server and heroku instance
+
+29-MAY-2020
+
+Notes
+
+- complete login and register works for Facebook OATH on both local server and heroku instances
+
