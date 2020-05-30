@@ -5,3 +5,10 @@ Notes
 - create account on codesandbox.io for challenges
 - watched videos and completed coding challenges in lessons 418, 419, 420, 421, 422, 423 and 424
 
+30-MAY-2020
+
+Notes
+
+- complete coding exercises in lesson 425
+  https://codesandbox.io/s/jsx-attributes-and-styling-4mzhk?file=/src/index.js:105-130
+
