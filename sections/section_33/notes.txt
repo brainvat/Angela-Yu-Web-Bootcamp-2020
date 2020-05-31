@@ -21,3 +21,18 @@ Notes
 - completed coding exercise in lesson 428
   https://codesandbox.io/s/react-components-9ejtw?file=/src/List.jsx
 
+31-MAY-2020
+
+Notes
+
+- completed coding exercise in lesson 429
+  https://codesandbox.io/s/react-components-practice-vmcq8?file=/src/components/Heading.jsx
+
+- completed import/export exercises in lesson 430
+  https://codesandbox.io/s/es6-importexport-modules-y0nhm?file=/src/index.js
+
+- completed import/export challenge in lesson 431
+  https://codesandbox.io/s/es6-importexport-practice-nqn9f
+
+- watched lessons 432, 433 regarding local React environment for PC and Mac (VSCode)
+
