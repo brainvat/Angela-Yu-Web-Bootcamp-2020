@@ -18,3 +18,6 @@ Notes
 - completed coding exercise in lesson 427
   https://codesandbox.io/s/react-styling-practice-q3qt5?file=/src/index.js
 
+- completed coding exercise in lesson 428
+  https://codesandbox.io/s/react-components-9ejtw?file=/src/List.jsx
+
