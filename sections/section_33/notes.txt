@@ -12,3 +12,9 @@ Notes
 - complete coding exercises in lesson 425
   https://codesandbox.io/s/jsx-attributes-and-styling-4mzhk?file=/src/index.js:105-130
 
+- complete coding exercises in lesson 426
+  https://codesandbox.io/s/inline-styling-in-jsx-9v1nw?file=/src/index.js
+
+- completed coding exercise in lesson 427
+  https://codesandbox.io/s/react-styling-practice-q3qt5?file=/src/index.js
+
