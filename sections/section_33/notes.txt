@@ -36,3 +36,7 @@ Notes
 
 - watched lessons 432, 433 regarding local React environment for PC and Mac (VSCode)
 
+- completed Keeper App Project - Part 1 Challenge from lesson 434 in codesandox
+  https://codesandbox.io/s/keeper-app-part-1-starting-27txi?file=/src/components/Footer.jsx
+
+- verified app by compiling and running locally then comparing to lesson 435
