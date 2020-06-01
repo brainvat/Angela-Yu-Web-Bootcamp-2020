@@ -40,3 +40,10 @@ Notes
   https://codesandbox.io/s/keeper-app-part-1-starting-27txi?file=/src/components/Footer.jsx
 
 - verified app by compiling and running locally then comparing to lesson 435
+
+- completed exercises in lesson 436
+  https://codesandbox.io/s/react-props-u40hm?file=/src/index.js
+
+- completed practice challenge in lesson 437
+  https://codesandbox.io/s/react-props-practice-th3mo?file=/src/components/Card.jsx
+
