@@ -46,4 +46,3 @@ Notes
 
 - completed practice challenge in lesson 437
   https://codesandbox.io/s/react-props-practice-th3mo?file=/src/components/Card.jsx
-
