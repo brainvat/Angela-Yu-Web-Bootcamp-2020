@@ -66,3 +66,13 @@ Notes
   Lesson 445: https://codesandbox.io/s/conditional-rendering-practice-tvcit
 
 - watched lesson 446
+
+02-JUNE-2020
+
+Notes
+
+- completed coding exercises in lessons 447, 448, 449, 450, 451, 452
+
+  Lesson 447: https://codesandbox.io/s/usestate-hook-c2ph5
+  Lesson 448: https://codesandbox.io/s/usestate-hook-practice-ie189
+  Lesson 449:
