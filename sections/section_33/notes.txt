@@ -46,3 +46,23 @@ Notes
 
 - completed practice challenge in lesson 437
   https://codesandbox.io/s/react-props-practice-th3mo?file=/src/components/Card.jsx
+
+01-JUNE-2020
+
+Notes
+
+- completed coding exercises in lessons 438, 439, 440, 441, and 442
+
+  Lesson 438: https://codesandbox.io/s/react-devtools-evrjs
+  Lesson 439: https://codesandbox.io/s/mapping-components-dx95l
+  Lesson 440: https://codesandbox.io/s/mapping-components-practice-tgfsm
+  Lesson 441: https://codesandbox.io/s/mapfilterreduce-2rf3i
+  Lesson 442: https://codesandbox.io/s/es6-arrow-functions-1tzwk
+
+- completed coding exercises in lessons 443, 444, and 445
+
+  Lesson 443: https://codesandbox.io/s/keeper-app-part-2-starting-b33r8?file=/src/components/App.js
+  Lesson 444: https://codesandbox.io/s/conditional-rendering-m2jqx
+  Lesson 445: https://codesandbox.io/s/conditional-rendering-practice-tvcit
+
+- watched lesson 446
