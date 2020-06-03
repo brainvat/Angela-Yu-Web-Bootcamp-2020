@@ -78,3 +78,17 @@ Notes
   Lesson 449, 450: https://codesandbox.io/s/es6-destructuring-xzewt
   Lesson 451: https://codesandbox.io/s/event-handling-in-react-xc5uz
   Lesson 452: https://codesandbox.io/s/react-forms-x38lp
+
+03-JUNE-2020
+
+Notes
+
+ - watched lesson 453-458 and completed challenges in codesandbox
+
+  Lesson 454: https://codesandbox.io/s/changing-complex-state-9grt9
+  Lesson 455: https://codesandbox.io/s/changing-complex-state-practice-87cxz
+  Lesson 456: https://codesandbox.io/s/es6-spread-operator-kb6x4
+  Lesson 457: https://codesandbox.io/s/es6-spread-operator-practice-dghz3
+  Lesson 458: https://codesandbox.io/s/managing-a-component-tree-znv10
+
+
