@@ -75,4 +75,6 @@ Notes
 
   Lesson 447: https://codesandbox.io/s/usestate-hook-c2ph5
   Lesson 448: https://codesandbox.io/s/usestate-hook-practice-ie189
-  Lesson 449:
+  Lesson 449, 450: https://codesandbox.io/s/es6-destructuring-xzewt
+  Lesson 451: https://codesandbox.io/s/event-handling-in-react-xc5uz
+  Lesson 452: https://codesandbox.io/s/react-forms-x38lp
