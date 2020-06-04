@@ -40,16 +40,17 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 300px;
   margin: 16px;
   float: left;
 }
 .note h1 {
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-bottom: 6px;
+  font-weight: 900
 }
 .note p {
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
