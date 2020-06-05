@@ -83,7 +83,7 @@ Notes
 
 Notes
 
- - watched lesson 453-458 and completed challenges in codesandbox
+ - watched lessons 453-458 and completed challenges in codesandbox
 
   Lesson 454: https://codesandbox.io/s/changing-complex-state-9grt9
   Lesson 455: https://codesandbox.io/s/changing-complex-state-practice-87cxz
@@ -91,4 +91,14 @@ Notes
   Lesson 457: https://codesandbox.io/s/es6-spread-operator-practice-dghz3
   Lesson 458: https://codesandbox.io/s/managing-a-component-tree-znv10
 
+04-JUNE-2020
 
+Notes
+
+ - watched lessons 459-462 to complete section 33
+
+  Lesson 459: https://codesandbox.io/s/keeper-part-3-starting-rjcm7?file=/src/components/CreateArea.jsx
+  Lesson 460: https://codesandbox.io/s/using-pre-built-react-components-1yodb?file=/src/components/Note.jsx
+  Lesson 461: https://codesandbox.io/s/using-pre-built-react-components-6vvz5
+
+- downloaded finished Keeper app in codesandbox to begin final capstone project 

@@ -1,14 +1,14 @@
 import React from "react";
 
-const Footer = function() {
-  const today = new Date();
-  const year = today.getFullYear();
-
+function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer>
-      <p>Copyright &copy; {year}</p>
-    </footer>
+    <div className="footer-padding">
+      <footer>
+        <p>Copyright ⓒ {year}</p>
+      </footer>
+    </div>
   );
-};
+}
 
 export default Footer;

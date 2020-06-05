@@ -1,20 +1,35 @@
 import React from "react";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 
-const Note = function(p) {
-  function createMarkup(s) {
-    const encodedStr = s.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
-      return '&#'+i.charCodeAt(0)+';';
-    });
-    
-    return {__html: s };
-  };
+function Note(props) {
+  function handleClick() {
+    props.onDelete(props.id);
+  }
+
+  // https://programmingwithmosh.com/react/multiple-css-classes-react/
+  function classList(classes) {
+    return Object.entries(classes)
+      .filter(entry => entry[1])
+      .map(entry => entry[0])
+      .join(" ");
+  }
 
   return (
-    <div className="note">
-      <h1>{p.title || "This is the note title"}</h1>
-      <p dangerouslySetInnerHTML={createMarkup(p.content || "This is the note content")}></p>
+    <div
+      className={classList({
+        note: true,
+        "note--blocked": props.blocked === true
+      })}
+    >
+      <h1>{props.blocked ? "Error" : props.title || "Empty note"}</h1>
+      <p>{props.blocked ? "Too many entries." : props.content || "📋"}</p>
+      {!props.blocked && (
+        <button onClick={handleClick}>
+          <DeleteForeverIcon />
+        </button>
+      )}
     </div>
   );
-};
+}
 
 export default Note;
