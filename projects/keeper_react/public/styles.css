@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
   position: relative;
@@ -15,11 +16,10 @@ body {
   margin-bottom: 2.5rem;
   background-color: #cf7500;
   background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header {
-  background-color: #f0a500; /* #f5ba13; */
+  background-color: #f0a500;
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -60,7 +60,7 @@ footer p {
 }
 
 .note--blocked {
-  background: #cf0d00; /* #005acf; /* red; */
+  background: #cf0d00;
   color: white;
 }
 
@@ -84,7 +84,7 @@ footer p {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f0a500; /* #f5ba13; */
+  color: #f0a500;
   border: none;
   width: 36px;
   height: 36px;
@@ -102,6 +102,7 @@ form.create-note {
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+
 form.create-note input,
 form.create-note textarea {
   width: 100%;
@@ -112,11 +113,12 @@ form.create-note textarea {
   font-family: inherit;
   resize: vertical;
 }
+
 form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f0a500; /* #f5ba13; */
+  background: #f0a500;
   color: #fff;
   border: none;
   border-radius: 50%;

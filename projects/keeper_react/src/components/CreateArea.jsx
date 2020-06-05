@@ -29,6 +29,7 @@ function CreateArea(props) {
         [name]: value
       };
     });
+    event.preventDefault();
   }
 
   function submitNote(event) {
@@ -37,14 +38,19 @@ function CreateArea(props) {
         title: "",
         content: ""
       });
-      setExpanded(false);      
+      setExpanded(false);
     };
     event.preventDefault();
   }
 
+function handleSubmit(event) {
+  submitNote(event);
+  event.preventDefault();
+}
+
   return (
     <div>
-      <form className="create-note">
+      <form className="create-note" onSubmit={handleSubmit}>
         {expanded && (
           <input
             name="title"
