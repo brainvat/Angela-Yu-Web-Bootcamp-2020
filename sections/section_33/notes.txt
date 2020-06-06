@@ -102,3 +102,11 @@ Notes
   Lesson 461: https://codesandbox.io/s/using-pre-built-react-components-6vvz5
 
 - downloaded finished Keeper app in codesandbox to begin final capstone project 
+
+05-JUNE-2020
+
+Notes
+
+- combined keeper_react and secrets_auth projects into single reactjs/nodejs/mongo app and deployed to Heroko
+- next step is to create README file to describe capstone and to add user authentication to keeper notes
+
