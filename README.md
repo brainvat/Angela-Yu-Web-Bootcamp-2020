@@ -45,6 +45,9 @@ I strongly recommend you check out all of her courses, from iOS and Swift mobile
 her newer courses in Data Science.  She has developed a format for beginners that is very engaging,
 encouraging, and progressive.  
 
+https://www.udemy.com/course/ios-13-app-development-bootcamp/
+https://www.udemy.com/course/flutter-bootcamp-with-dart/
+
 ## Capstone
 
 My final project, not officially a part of the course, is an effort to combine the Secrets project,
