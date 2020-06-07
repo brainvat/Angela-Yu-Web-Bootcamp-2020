@@ -26,9 +26,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-// app.use(express.static("public"));
-// app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
+// if (process.env.NODE_ENV !== 'production') {
+//   app.use(express.static(__dirname));
+//   app.use(express.static("public"));
+// } else {
+  app.use(express.static(path.join(__dirname, 'build')));
+// }
 
 app.use(session({
   secret: process.env.SECRET || 'mylittlesecret',

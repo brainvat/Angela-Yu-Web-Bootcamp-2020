@@ -31,6 +31,10 @@ header h1 {
   font-weight: 200;
 }
 
+header h1 svg {
+  margin-right: 1rem;
+}
+
 footer {
   position: absolute;
   text-align: center;
