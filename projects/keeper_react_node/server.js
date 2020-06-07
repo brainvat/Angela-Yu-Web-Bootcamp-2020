@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 // app.use(express.static("public"));
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(session({
@@ -124,7 +124,7 @@ app.get('/', function(req, resp) {
   resp.render('home');
 });
 
-app.get('/ping', function (req, res) {
+app.get('/ping', function(req, res) {
   return res.send('pong');
 });
 
@@ -150,12 +150,16 @@ app.get('/auth/facebook/secrets',
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {
     User.find({
-      secret: { $ne: null }
+      secret: {
+        $ne: null
+      }
     }, function(err, foundUsers) {
       if (err) {
         console.log(`No secrets found:\n${err}`);
       }
-      resp.render('secrets', { usersWithSecrets: foundUsers || [] });
+      resp.render('secrets', {
+        usersWithSecrets: foundUsers || []
+      });
     });
   } else {
     resp.render('login', {
@@ -252,7 +256,7 @@ app.route('/submit')
       } else {
         if (foundUser) {
           foundUser.secret = submittedSecret;
-          foundUser.save(function(error){
+          foundUser.save(function(error) {
             if (error) {
               console.log(`SECRET SAVE ERROR:\n${error}`);
               resp.redirect('/');

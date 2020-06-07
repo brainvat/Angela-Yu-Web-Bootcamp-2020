@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
-const maxNotes = 15;
+const maxNotes = 5;
 
 function App() {
   const [notes, setNotes] = useState([]);
