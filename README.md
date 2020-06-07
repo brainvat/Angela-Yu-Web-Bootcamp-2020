@@ -46,6 +46,7 @@ her newer courses in Data Science.  She has developed a format for beginners tha
 encouraging, and progressive.  
 
 https://www.udemy.com/course/ios-13-app-development-bootcamp/
+
 https://www.udemy.com/course/flutter-bootcamp-with-dart/
 
 ## Capstone
