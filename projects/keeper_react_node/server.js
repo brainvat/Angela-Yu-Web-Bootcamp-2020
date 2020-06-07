@@ -283,5 +283,5 @@ app.listen(port, function() {
 });
 
 //
-// git subtree push --prefix projects/keeper_react heroku-keeper master
+// git subtree push --prefix projects/keeper_react_node heroku-keeper master
 //
