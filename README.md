@@ -24,7 +24,15 @@ programming.  I am deeply familiar with many server-side programming languages s
 PHP, and to a lesser extent Python.  However, ES6, CSS3 and modern front-end frameworks such
 as Bootstrap were very new. 
 
-Also, I had no previous experience to any kind of server-side JavaScript development like NodeJS
+It turns out, my original schedule to complete the course in 5 weeks was too aggressive.  Watching
+videos nearly every day, but doing the programming only 2-3 hours per week, the course took about
+3 months to complete.  This schedule was created for myself (with many years of programming
+experience) and my nephew (who had only limited HTML and CSS experience prior to starting the
+course).
+
+![Original Schedule](angela_yu_webdev_bootcamp_schedule.png)
+
+I had no previous experience to any kind of server-side JavaScript development like NodeJS
 or Express.  I found that I much prefer development in these environments compared to frameworks
 like Ruby on Rails where there's a little too much "magic" behind the scenes being done by generators
 and perhaps too much "convention over configuration".  I like the balance that codes with NodeJS
