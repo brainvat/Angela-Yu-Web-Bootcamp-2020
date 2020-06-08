@@ -14,6 +14,10 @@ function Note(props) {
       .join(" ");
   }
 
+  function createMarkup(s) {
+    return {__html: s };
+  };
+
   return (
     <div
       className={classList({
@@ -22,7 +26,7 @@ function Note(props) {
       })}
     >
       <h1>{props.blocked ? "Error" : props.title || "Empty note"}</h1>
-      <p>{props.blocked ? "Too many entries." : props.content || "📋"}</p>
+      <p dangerouslySetInnerHTML={createMarkup(props.blocked ? "Too many entries." : props.content || "📋")}></p>
       {!props.blocked && (
         <button onClick={handleClick}>
           <DeleteForeverIcon />

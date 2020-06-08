@@ -1,4 +1,4 @@
-const notes = [{
+const static_notes = [{
   id: 0,
   title: "Watch an orange scream",
   content: "Visit <a href=\"https://www.youtube.com/watch?v=0blHYqhpR70\">my YouTube page</a>"
@@ -8,4 +8,4 @@ const notes = [{
   content: "Use an arduino brain with face detection to aim it."
 }];
 
-export default notes;
+export default static_notes;

@@ -15,6 +15,7 @@ const findOrCreate = require('mongoose-findorcreate');
 const dateFormat = require('dateformat');
 dateFormat.masks.createdTime = 'dddd, mmmm dS, yyyy, h:MM:ss TT';
 
+const assetsPath = path.join(__dirname, 'build');
 if (process.env.NODE_ENV !== 'production') {
   const dotenv = require('dotenv');
   dotenv.config();
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({
 //   app.use(express.static(__dirname));
 //   app.use(express.static("public"));
 // } else {
-  app.use(express.static(path.join(__dirname, 'build')));
+//  app.use(express.static(path.join(__dirname, 'build')));
 // }
 
 app.use(session({
@@ -138,7 +139,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/secrets',
   passport.authenticate('google', {
-    successRedirect: '/secrets',
+    successRedirect: '/index.html',
     failureRedirect: '/login'
   }));
 
@@ -146,9 +147,41 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/secrets',
   passport.authenticate('facebook', {
-    successRedirect: '/secrets',
+    successRedirect: '/index.html',
     failureRedirect: '/login'
   }));
+
+
+app.get('/css/:path', function(req, resp) {
+  resp.sendFile(path.join(assetsPath, 'css', req.params.path));
+});
+
+app.get('/static/js/:path', function(req, resp) {
+  resp.sendFile(path.join(assetsPath, 'static', 'js', req.params.path));
+});
+
+app.get('/favicon.ico', function(req, resp) {
+  resp.sendFile(path.join(assetsPath, 'favicon.ico'));
+});
+
+app.get('/index.html', function(req, resp) {
+  if (req.isAuthenticated()) {
+    User.find({
+      secret: {
+        $ne: null
+      }
+    }, function(err, foundUsers) {
+      if (err) {
+        console.log(`No secrets found:\n${err}`);
+      }
+      resp.sendFile(path.join(assetsPath, 'index.html'));
+    });
+  } else {
+    resp.render('login', {
+      errorMsg: 'You must be logged in to view the secret'
+    });
+  }
+});
 
 app.get('/secrets', function(req, resp) {
   if (req.isAuthenticated()) {
@@ -160,9 +193,15 @@ app.get('/secrets', function(req, resp) {
       if (err) {
         console.log(`No secrets found:\n${err}`);
       }
-      resp.render('secrets', {
-        usersWithSecrets: foundUsers || []
-      });
+      if (userIsSuper(req)) {
+        resp.render('secrets', {
+          usersWithSecrets: foundUsers || []
+        });
+      } else {
+        resp.render('login', {
+          errorMsg: 'Unauthorized user'
+        });
+      }
     });
   } else {
     resp.render('login', {
@@ -170,6 +209,7 @@ app.get('/secrets', function(req, resp) {
     });
   }
 });
+
 
 app.route('/register')
 
@@ -190,7 +230,7 @@ app.route('/register')
         });
       } else {
         passport.authenticate("local")(req, resp, function() {
-          resp.redirect('/secrets');
+          resp.redirect('/index.html');
         });
       }
     });
@@ -221,7 +261,7 @@ app.route('/login')
           failureRedirect: '/login',
           failureFlash: true
         })(req, resp, function() {
-          resp.redirect('/secrets');
+          resp.redirect('/index.html');
         });
       }
     });
@@ -238,7 +278,14 @@ app.route('/submit')
 
   .get(function(req, resp) {
     if (req.isAuthenticated()) {
-      resp.render('submit');
+      if (!userIsSuper(req)) {
+        console.log('Abort request, unauthorized user');
+        resp.redirect('/');
+        // TODO: to avoid crashing the app, since http headers are sent
+        return;
+      } else {
+        resp.render('submit');
+      }
     } else {
       resp.render('login', {
         errorMsg: 'You must be logged in to submit secrets'
@@ -249,6 +296,13 @@ app.route('/submit')
   .post(function(req, resp) {
     const submittedSecret = req.body.secret;
     console.log(req.user);
+
+    if (!userIsSuper(req)) {
+      console.log('Abort save secret, unauthorized user');
+      resp.redirect('/');
+      // TODO: to avoid crashing the app, since http headers are sent
+      return;
+    }
 
     User.findById(req.user.id, function(err, foundUser) {
       if (err) {
@@ -281,6 +335,10 @@ const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log(`Express server listening on port ${port}`);
 });
+
+function userIsSuper(req) {
+  return req.user && (req.user.username === process.env.SUPERUSER);
+}
 
 //
 // git subtree push --prefix projects/keeper_react_node heroku-keeper master

@@ -3,11 +3,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import static_notes from "./notes";
 
-const maxNotes = 5;
+const maxNotes = 10;
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(static_notes);
   const [blocked, setBlocked] = useState(false);
 
   function addNote(newNote) {
