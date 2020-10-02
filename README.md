@@ -13,7 +13,7 @@ local gym), then later completed the programming exercises in each section.  Abo
 through the course, I started the actual programming.
 
 You'll see the commit logs tracking my progress.  The *sections* directory contains brief notes
-I took as I watched the videos.  The *projects* directory containst the actual programming
+I took as I watched the videos.  The *projects* directory contain the actual programming
 exercises.  In some cases, the exercises were completed using cloud-based tools like CodePen or
 CodeSandbox.  Wherever possible I exported those code exercises to my repository to show my work.
 
